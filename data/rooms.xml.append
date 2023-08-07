@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<roomLayout name="escort_engines">
+	<computerGlow x="1" y="6" dir="LEFT" />
+</roomLayout>
+<roomLayout name="escort_shields">
+	<computerGlow x="1" y="6" dir="LEFT" />
+</roomLayout>
+<roomLayout name="escort_weapons">
+	<computerGlow x="40" y="0" dir="UP" />
+</roomLayout>

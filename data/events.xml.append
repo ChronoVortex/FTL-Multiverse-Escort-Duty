@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mod:findName type="event" name="START_BEACON_PRESELECT" panic="true">
+    <mod:findWithChildLike type="choice" child-type="text" limit="1" panic="true">
+        <mod:selector>Proceed with your mission.</mod:selector>
+        <mod:setAttributes req="ALTERNATE_START" lvl="0" max_lvl="0" blue="false" />
+    </mod:findWithChildLike>
+    <mod-append:choice hidden="true" req="SHIP PLAYER_SHIP_ESCORT_DUTY" blue="false">
+        <text>Proceed with your mission.</text>
+        <event load="INITIAL_START_BEACON_ESCORT_DUTY"/>
+    </mod-append:choice>
+</mod:findName>
+
+<event name="INITIAL_START_BEACON_ESCORT_DUTY">
+    <text>Your ships are equipped with a pair of short-range transporters. When activated, crew on the pads will be teleported to the pads on the other ship. They cannot be damaged, but require 5 seconds to recharge after being used.</text>
+    <choice hidden="true">
+        <text>Continue...</text>
+        <event name="LUA_HIDE_ESCORT_TUTORIAL_ARROW">
+            <text>Name: Federation Multiverse Drop Point
+Type: Friendly
+Unique: True
+Dominant Faction: The Federation
+Rebel Threat Level: Medium (Neutral Fleet)
+
+You're about to arrive at the nearest Federation warpbay. These hangar-like structures act as beacons of sorts for traveling between universes. Let's hope you're given a nice warm welcome and not greeted by a fleet of angry Rebels or Pirates, right?</text>
+            <choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
+                <text>Exit Hyperspeed.</text>
+                <event load="START_BEACON_PREP_LOAD"/>
+            </choice>
+        </event>
+    </choice>
+    <eventButton name="UI_ESCORT_TELEPORT">
+        <event load="LUA_ESCORT_TELEPORT"/>
+        <image>statusUI/escort_tp</image>
+        <customLocation x="979" y="663"/>
+        <tooltip>Activate the short-range transporter.</tooltip>
+        <inactiveTooltip>Short-range transporter not charged.</inactiveTooltip>
+        <req>loc_escort_teleport_charged</req>
+        <jumpClear>false</jumpClear>
+    </eventButton>
+</event>
+<event name="LUA_ESCORT_TELEPORT">
+    <triggeredEvent event="ESCORT_TELEPORT_RECHARGE" minTime="5.0" maxTime="5.0"/>
+    <variable name="loc_escort_teleport_charged" op="set" val="0"/>
+</event>
+<event name="ESCORT_TELEPORT_RECHARGE">
+    <variable name="loc_escort_teleport_charged" op="set" val="1"/>
+</event>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- placeholder until MV 5.4 -->
+<showShipAchievements enabled="true" toggle="true" hideIfMissing="true" id="hangar_achievements_title_default"/>
+
+<version>^1.7.0</version>
+
+<mod:findLike type="discord" limit="1">
+    <mod:findLike type="miniships">
+        <mod-append:miniship>miniship_escort</mod-append:miniship>
+    </mod:findLike>
+</mod:findLike>
+
+<mod:findLike type="ships" limit="1">
+	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="false" c="false">
+        <achievement name="ACH_SHIP_ESCORT_DUTY_1" layout="all">
+            <name>Duct Tape and Prayers</name>
+            <description>Repair 20 hull damage during one fight while using Escort Duty.</description>
+            <icon>escort_ach_1</icon>
+            <lockImage>escort_ach_1_lock</lockImage>
+        </achievement>
+        <achievement name="ACH_SHIP_ESCORT_DUTY_2" layout="all">
+            <name>The Best Defense Is a Good Offense</name>
+            <description>Destroy 3 enemy combat drones with an anti-projectile defense drone in one run while using Escort Duty.</description>
+            <icon>escort_ach_2</icon>
+            <lockImage>escort_ach_2_lock</lockImage>
+        </achievement>
+        <achievement name="ACH_SHIP_ESCORT_DUTY_3" layout="all">
+            <name>Vigilant Protector</name>
+            <description>Reach sector 5 without taking more than 5 hull damage while using Escort Duty.</description>
+            <icon>escort_ach_3</icon>
+            <lockImage>escort_ach_3_lock</lockImage>
+        </achievement>
+	</mod-append:ship>
+	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY">
+		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
+        <rooms>
+            <room id="13">
+                <roomAnim renderLayer="1">escort_decor_crate_stack</roomAnim>
+            </room>
+            <room id="10">
+                <roomAnim renderLayer="2">tele_ico</roomAnim>
+                <roomAnim renderLayer="1">escort_decor_fuel_cell</roomAnim>
+            </room>
+            <room id="5">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+            <room id="6">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_2</roomAnim>
+            </room>
+        </rooms>
+	</mod-append:customShip>
+</mod:findLike>
+
+<mod:findLike type="events" limit="1">
+    <mod-append:variable name="loc_escort_teleport_charged" op="set" val="1"/>
+    <mod-append:variable name="loc_escort_drones_destroyed" op="set" val="0"/>
+    <mod-append:variable name="loc_escort_damage_taken" op="set" val="0"/>
+    
+    <!-- Add requirement list only if one doesn't
+    already exist, then append new items to it -->
+    <mod-append:req name="ALTERNATE_START" type="any" />
+    <mod:findName type="req" name="ALTERNATE_START" reverse="false" start="1" limit="-1">
+        <mod:removeTag />
+    </mod:findName>
+    <mod:findName type="req" name="ALTERNATE_START">
+        <mod-append:name>SHIP PLAYER_SHIP_ESCORT_DUTY</mod-append:name>
+    </mod:findName>
+</mod:findLike>
+
+<mod:findLike type="scripts" limit="1">
+    <mod-append:script>data/escort_scripts/escort-duty.lua</mod-append:script>
+    <mod-append:script>data/escort_scripts/escort-duty-ach.lua</mod-append:script>
+</mod:findLike>

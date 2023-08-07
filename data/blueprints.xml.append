@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<shipBlueprint name="PLAYER_SHIP_ESCORT_DUTY" layout="escort" img="escort">
+	<class>Escort Duty</class>
+	<name>Convocation</name>
+	<desc>Help the supply ship reach the fleet! Keep it safe!</desc>
+	<systemList>
+		<battery max="2" power="1" room="4" start="false" img="room_battery_12" />
+		<cloaking power="1" room="13" start="false" img="escort_cloaking" />
+		<clonebay power="1" room="9" start="false">
+			<slot>
+				<number>1</number>
+			</slot>
+		</clonebay>
+		<doors power="1" room="11" start="true" img="room_doors">
+			<slot>
+				<direction>up</direction>
+				<number>1</number>
+			</slot>
+		</doors>
+		<drones max="8" power="3" room="6" start="true" img="escort_drones" />
+		<engines power="2" room="2" start="true" img="room_escort_engines">
+			<slot>
+				<direction>left</direction>
+				<number>0</number>
+			</slot>
+		</engines>
+		<hacking power="1" room="8" start="false" img="room_hacking_2" />
+		<medbay power="1" room="9" start="true" img="escort_medbay">
+			<slot>
+				<number>-2</number>
+			</slot>
+		</medbay>
+		<mind power="1" room="7" start="false" img="room_mind_5" />
+		<oxygen power="1" room="12" start="true" img="escort_oxygen" />
+		<pilot power="1" room="0" start="true" img="room_pilot_2">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</pilot>
+		<sensors power="1" room="14" start="true" img="room_sensors_6">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</sensors>
+		<shields max="8" power="4" room="3" start="true" img="room_escort_shields">
+			<slot>
+				<direction>left</direction>
+				<number>0</number>
+			</slot>
+		</shields>
+		<teleporter power="1" room="10" start="false" />
+		<weapons max="8" power="2" room="1" start="true" img="room_escort_weapons">
+			<slot>
+				<direction>up</direction>
+				<number>1</number>
+			</slot>
+		</weapons>
+	</systemList>
+	<weaponSlots>3</weaponSlots>
+	<droneSlots>2</droneSlots>
+	<weaponList missiles="2" count="3">
+		<weapon name="ION_TRI_PLAYER" />
+		<weapon name="LASER_BURST_2" />
+		<weapon name="BOMB_HEAL_SYSTEM" />
+	</weaponList>
+	<droneList drones="3" count="2">
+		<drone name="DEFENSE_2" />
+	</droneList>
+	<health amount="30" />
+	<maxPower amount="9" />
+	<crewCount amount="3" class="human" />
+	<aug name="DRONE_RECOVERY" />
+</shipBlueprint>
+
+<weaponBlueprint name="ION_TRI_PLAYER">
+	<type>BURST</type>
+	<drone_targetable>0</drone_targetable>
+	<flavorType>Ion Blast</flavorType>
+	<title>Tri-Ion†</title>
+	<short>Tri-Ion†</short>
+	<tip>tip_ion</tip>
+	<locked>1</locked>
+	<desc>A less accurate ion weapon efficient at taking down shields, but not quite as useful against targeted systems. You can call it a Trion, if you'd like.</desc>
+	<tooltip>Fires a single blast that does 1 ion damage. Can hit and disable shields as well as systems.</tooltip>
+	<radius>60</radius>
+	<spin>720</spin>
+	<damage>0</damage>
+	<ion>1</ion>
+	<speed>20</speed>
+	<shots>1</shots>
+	<sp>0</sp>
+	<fireChance>0</fireChance>
+	<breachChance>0</breachChance>
+	<stunChance>1</stunChance>
+	<cooldown>13</cooldown>
+	<power>1</power>
+	<cost>55</cost>
+	<bp>3</bp>
+	<rarity>0</rarity>
+	<spin>0</spin>
+	<projectiles>
+		<projectile count="3" fake="false">ion_barrage</projectile>
+	</projectiles>
+	<explosion>explosion_small_ion</explosion>
+	<launchSounds>
+		<sound>ionShoot1</sound>
+		<sound>ionShoot2</sound>
+		<sound>ionShoot3</sound>
+	</launchSounds>
+	<hitShipSounds>
+		<sound>ionHit1</sound>
+		<sound>ionHit2</sound>
+		<sound>ionHit3</sound>
+	</hitShipSounds>
+	<hitShieldSounds>
+		<sound>ionShields1</sound>
+		<sound>ionShields2</sound>
+		<sound>ionShields3</sound>
+	</hitShieldSounds>
+	<missSounds>
+		<sound>miss</sound>
+	</missSounds>
+	<weaponArt>ion_dual</weaponArt>
+	<iconImage>ion</iconImage>
+</weaponBlueprint>
