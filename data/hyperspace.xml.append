@@ -39,7 +39,6 @@
                 <roomAnim renderLayer="1">escort_decor_crate_stack</roomAnim>
             </room>
             <room id="10">
-                <roomAnim renderLayer="2">tele_ico</roomAnim>
                 <roomAnim renderLayer="1">escort_decor_fuel_cell</roomAnim>
             </room>
             <room id="5">
