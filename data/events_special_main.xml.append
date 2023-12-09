@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <mod:findName type="event" name="START_BEACON_PRESELECT" panic="true">
+    <!-- Jank way to make sure "Proceed with your mission" is always on top -->
+    <mod:findLike type="choice" start="1" limit="1">
+        <mod:setAttributes max_group="1" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="2" limit="1">
+        <mod:setAttributes max_group="2" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="3" limit="1">
+        <mod:setAttributes max_group="3" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="4" limit="1">
+        <mod:setAttributes max_group="4" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="5" limit="1">
+        <mod:setAttributes max_group="5" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="6" limit="1">
+        <mod:setAttributes max_group="6" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="7" limit="1">
+        <mod:setAttributes max_group="7" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="8" limit="1">
+        <mod:setAttributes max_group="8" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="9" limit="1">
+        <mod:setAttributes max_group="9" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="10" limit="1">
+        <mod:setAttributes max_group="10" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="11" limit="1">
+        <mod:setAttributes max_group="11" />
+    </mod:findLike>
+    <mod:findLike type="choice" start="12" limit="1">
+        <mod:setAttributes max_group="12" />
+    </mod:findLike>
+    
+    <!-- Custom start for escort duty -->
     <mod:findWithChildLike type="choice" child-type="text" limit="1" panic="true">
         <mod:selector>Proceed with your mission.</mod:selector>
         <mod:setAttributes req="ALTERNATE_START" lvl="0" max_lvl="0" blue="false" />
@@ -15,19 +54,7 @@
     <text>Your ships are equipped with a pair of short-range transporters. When activated, crew on the pads will be teleported to the pads on the other ship. They cannot be damaged, but require 5 seconds to recharge after being used.</text>
     <choice hidden="true">
         <text>Continue...</text>
-        <event name="LUA_HIDE_ESCORT_TUTORIAL_ARROW">
-            <text>Name: Federation Multiverse Drop Point
-Type: Friendly
-Unique: True
-Dominant Faction: The Federation
-Rebel Threat Level: Medium (Neutral Fleet)
-
-You're about to arrive at the nearest Federation warpbay. These hangar-like structures act as beacons of sorts for traveling between universes. Let's hope you're given a nice warm welcome and not greeted by a fleet of angry Rebels or Pirates, right?</text>
-            <choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
-                <text>Exit Hyperspeed.</text>
-                <event load="START_BEACON_PREP_LOAD"/>
-            </choice>
-        </event>
+        <event load="LIGHTSPEED_DROPPOINT"/>
     </choice>
     <eventButton name="UI_ESCORT_TELEPORT">
         <event load="LUA_ESCORT_TELEPORT"/>

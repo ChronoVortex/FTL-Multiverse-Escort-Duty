@@ -85,7 +85,7 @@ end)
 script.on_game_event("INITIAL_START_BEACON_ESCORT_DUTY", false, function()
     ShowTutorialArrow(1, 918, 561)
 end)
-script.on_game_event("LUA_HIDE_ESCORT_TUTORIAL_ARROW", false, HideTutorialArrow)
+script.on_game_event("LIGHTSPEED_DROPPOINT", false, HideTutorialArrow)
 script.on_game_event("START_BEACON_PRESELECT", false, HideTutorialArrow) -- Just in case the tut arrow is active on game start
 
 -- Coordinates of the individual TP pads on the escort fighter
