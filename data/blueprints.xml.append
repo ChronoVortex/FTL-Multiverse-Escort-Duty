@@ -73,6 +73,7 @@
 	<maxPower amount="9" />
 	<crewCount amount="3" class="human" />
 	<aug name="DRONE_RECOVERY" />
+    <mapImage offset="-44">map_icon_escort_duty</mapImage>
 </shipBlueprint>
 
 <weaponBlueprint name="ION_TRI_PLAYER">
