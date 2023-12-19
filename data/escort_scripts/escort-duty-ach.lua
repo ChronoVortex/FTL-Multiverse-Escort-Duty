@@ -70,7 +70,7 @@ end
 script.on_internal_event(Defines.InternalEvents.DRONE_COLLISION, function(drone, projectile, damage, response)
     if check_drone_ach_kill(drone, projectile, damage, response) then
         Hyperspace.playerVariables.loc_escort_drones_destroyed = Hyperspace.playerVariables.loc_escort_drones_destroyed + 1
-        if Hyperspace.playerVariables.loc_escort_drones_destroyed >= 3 then
+        if Hyperspace.playerVariables.loc_escort_drones_destroyed >= 2 then
             Hyperspace.CustomAchievementTracker.instance:SetAchievement("ACH_SHIP_ESCORT_DUTY_2", false)
         end
     end

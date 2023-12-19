@@ -18,7 +18,7 @@
         </achievement>
         <achievement name="ACH_SHIP_ESCORT_DUTY_2" layout="all">
             <name>The Best Defense Is a Good Offense</name>
-            <description>Destroy 3 enemy combat drones with an anti-projectile defense drone in one run while using Escort Duty.</description>
+            <description>Destroy 2 enemy combat drones with an anti-projectile defense drone in one run while using Escort Duty.</description>
             <icon>escort_ach_2</icon>
             <lockImage>escort_ach_2_lock</lockImage>
         </achievement>
