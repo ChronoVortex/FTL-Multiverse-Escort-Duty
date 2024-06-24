@@ -94,6 +94,12 @@
     <mod-append:variable name="loc_escort_drones_destroyed" op="set" val="0"/>
     <mod-append:variable name="loc_escort_damage_taken" op="set" val="0"/>
     
+    <mod-append:req name="ESCORT_DUTY_ACTIVE" type="any">
+        <name>SHIP PLAYER_SHIP_ESCORT_DUTY</name>
+        <name>SHIP PLAYER_SHIP_ESCORT_DUTY_2</name>
+        <name>SHIP PLAYER_SHIP_ESCORT_DUTY_3</name>
+    </mod-append:req>
+    
     <!-- Add requirement list only if one doesn't
     already exist, then append new items to it -->
     <mod-append:req name="ALTERNATE_START" type="any" />
@@ -101,7 +107,7 @@
         <mod:removeTag />
     </mod:findName>
     <mod:findName type="req" name="ALTERNATE_START">
-        <mod-append:name>SHIP PLAYER_SHIP_ESCORT_DUTY</mod-append:name>
+        <mod-append:name>ESCORT_DUTY_ACTIVE</mod-append:name>
     </mod:findName>
 </mod:findLike>
 
