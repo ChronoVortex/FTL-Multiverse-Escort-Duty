@@ -39,7 +39,7 @@
 				<number>1</number>
 			</slot>
 		</pilot>
-		<sensors power="1" room="14" start="true" img="room_sensors_6">
+		<sensors power="1" room="14" start="true" img="room_escort_sensors">
 			<slot>
 				<direction>right</direction>
 				<number>1</number>
