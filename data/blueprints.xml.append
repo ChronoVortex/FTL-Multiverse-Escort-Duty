@@ -79,6 +79,7 @@
 <shipBlueprint name="PLAYER_SHIP_ESCORT_DUTY_3" layout="escort_c" img="escort_c">
 	<class>Escort Duty</class>
 	<name>Parliament</name>
+    <unlock>Complete 2/3 of the Escort Duty Achievements to unlock this ship.</unlock>
 	<desc>Originally on a simple mission to deliver Lost Sun dignitaries for negotiations, these ships now find themselves stranded in the Multiverse and must combine their strengths to survive.</desc>
 	<systemList>
 		<artillery power="1" room="5" start="true" weapon="BOMB_CLUSTER" img="room_artillery" />

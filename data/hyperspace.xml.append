@@ -10,6 +10,9 @@
 
 <mod:findLike type="ships" limit="1">
 	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="false" c="true">
+        <unlock variant="c" silent="false">
+            <type>4</type>
+        </unlock>
         <achievement name="ACH_SHIP_ESCORT_DUTY_1" layout="all">
             <name>Duct Tape and Prayers</name>
             <description>Repair 20 hull damage during one fight while using Escort Duty.</description>
