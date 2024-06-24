@@ -81,21 +81,21 @@
 	<name>Parliament</name>
 	<desc>Originally on a simple mission to deliver Lost Sun dignitaries for negotiations, these ships now find themselves stranded in the Multiverse and must combine their strengths to survive.</desc>
 	<systemList>
-		<artillery power="1" room="5" start="true" weapon="ARTILLERY_FED" img="room_artillery" />
-		<battery power="1" room="0" start="false" img="room_battery_6" />
+		<artillery power="1" room="5" start="true" weapon="BOMB_CLUSTER" img="room_artillery" />
+		<battery max="2" power="1" room="0" start="false" img="room_battery_6" />
 		<cloaking power="1" room="11" start="true" img="room_cloaking_13" />
 		<clonebay power="1" room="2" start="false">
 			<slot>
 				<number>0</number>
 			</slot>
 		</clonebay>
-		<doors power="2" room="8" start="true" img="room_doors_4">
+		<doors power="2" room="8" start="true" img="room_escort_c_doors">
 			<slot>
 				<direction>right</direction>
 				<number>0</number>
 			</slot>
 		</doors>
-		<drones power="2" room="4" start="false" img="room_drones_6" />
+		<drones max="8" power="2" room="4" start="false" img="room_drones_6" />
 		<engines power="3" room="14" start="true" img="room_engines_5">
 			<slot>
 				<direction>up</direction>
@@ -123,19 +123,27 @@
 			</slot>
 		</sensors>
 		<teleporter power="1" room="6" start="false" />
-		<weapons power="2" room="10" start="true" img="ancient_artillery">
+		<weapons max="8" power="3" room="10" start="true" img="room_escort_c_weapons">
 			<slot>
 				<direction>down</direction>
 				<number>1</number>
 			</slot>
 		</weapons>
 	</systemList>
-	<weaponSlots>0</weaponSlots>
-	<droneSlots>0</droneSlots>
-	<weaponList missiles="0" count="0" />
-	<droneList drones="0" count="0" />
+	<weaponSlots>4</weaponSlots>
+	<droneSlots>2</droneSlots>
+	<weaponList missiles="12" count="4">
+		<weapon name="MISSILES_CLOAK" />
+		<weapon name="FOCUS_1" />
+		<weapon name="BOMB_HEAL_SYSTEM_STRONG" />
+	</weaponList>
+	<droneList drones="2" count="2" />
 	<health amount="30" />
 	<maxPower amount="9" />
+	<crewCount amount="2" class="human_soldier" />
+	<aug name="SYNTHESIZED_ARMOR" />
+	<aug name="EX_CLOAK_FIRE" />
+	<aug name="EX_EXPLOSIVE_REPLICATOR" />
     <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
 </shipBlueprint>
 
@@ -190,3 +198,12 @@
 	<weaponArt>ion_dual</weaponArt>
 	<iconImage>ion</iconImage>
 </weaponBlueprint>
+
+<augBlueprint name="SYNTHESIZED_ARMOR">
+    <title>Synthesized Armor</title>
+    <desc>Combination of Titanium System Casing and Rock Plating. Provides a 15% chance to resist damage to your systems and a 20% chance to negate incoming hull damage. Enemy boarders sabotage your systems at 40% speed. Provides an opportunity to ram the enemy ship before combat.</desc>
+    <cost>80</cost>
+    <bp>15</bp>
+    <rarity>0</rarity>
+    <stackable>true</stackable>
+</augBlueprint>

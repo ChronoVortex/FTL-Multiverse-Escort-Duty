@@ -50,7 +50,43 @@
 	</mod-append:customShip>
 	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_3">
 		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
+        <crew>
+            <rock_commando room="8" />
+            <rock_commando room="1" />
+        </crew>
+        <rooms>
+			<room id="11">
+				<roomAnim renderLayer="0">resist_2x1</roomAnim>
+                <roomAnim renderLayer="3">resist_icon</roomAnim>
+				<sysDamageResistChance>100</sysDamageResistChance>
+			</room>
+            <room id="9">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_c_1</roomAnim>
+            </room>
+            <room id="4">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_c_2</roomAnim>
+            </room>
+        </rooms>
 	</mod-append:customShip>
+</mod:findLike>
+
+<mod:findLike type="augments" limit="1">
+    <mod-append:aug name="SYNTHESIZED_ARMOR">
+		<statBoosts>
+			<statBoost name="sabotageSpeedMultiplier">
+				<boostType>MULT</boostType>
+				<amount>0.40</amount>
+				<shipTarget>ORIGINAL_SHIP</shipTarget>
+				<crewTarget>ALL</crewTarget>
+				<priority>0</priority>
+			</statBoost>
+		</statBoosts>
+		<function name="SYSTEM_CASING" value="0.15" useForReqs="true" warning="false"/>
+        <function name="ROCK_ARMOR" value="0.20" useForReqs="true" warning="false"/>
+        <locked/>
+    </mod-append:aug>
 </mod:findLike>
 
 <mod:findLike type="events" limit="1">
