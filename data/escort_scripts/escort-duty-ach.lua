@@ -2,11 +2,8 @@
 -- HELPER FUNCTIONS --
 ----------------------
 
-local userdata_table = mods.vertexutil.userdata_table
-
-local function string_starts(str, start)
-    return string.sub(str, 1, string.len(start)) == start
-end
+local userdata_table = mods.multiverse.userdata_table
+local string_starts = mods.multiverse.string_starts
 
 local function should_track_achievement(achievement, ship, shipClassName)
     return ship and
