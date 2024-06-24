@@ -9,7 +9,7 @@
 </mod:findLike>
 
 <mod:findLike type="ships" limit="1">
-	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="false" c="false">
+	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="false" c="true">
         <achievement name="ACH_SHIP_ESCORT_DUTY_1" layout="all">
             <name>Duct Tape and Prayers</name>
             <description>Repair 20 hull damage during one fight while using Escort Duty.</description>
@@ -47,6 +47,9 @@
                 <roomAnim renderLayer="1">telepad_on_escort_2</roomAnim>
             </room>
         </rooms>
+	</mod-append:customShip>
+	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_3">
+		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
 	</mod-append:customShip>
 </mod:findLike>
 

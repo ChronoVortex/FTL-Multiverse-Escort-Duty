@@ -76,6 +76,69 @@
     <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
 </shipBlueprint>
 
+<shipBlueprint name="PLAYER_SHIP_ESCORT_DUTY_3" layout="escort_c" img="escort_c">
+	<class>Escort Duty</class>
+	<name>Parliament</name>
+	<desc>Originally on a simple mission to deliver Lost Sun dignitaries for negotiations, these ships now find themselves stranded in the Multiverse and must combine their strengths to survive.</desc>
+	<systemList>
+		<artillery power="1" room="5" start="true" weapon="ARTILLERY_FED" img="room_artillery" />
+		<battery power="1" room="0" start="false" img="room_battery_6" />
+		<cloaking power="1" room="11" start="true" img="room_cloaking_13" />
+		<clonebay power="1" room="2" start="false">
+			<slot>
+				<number>0</number>
+			</slot>
+		</clonebay>
+		<doors power="2" room="8" start="true" img="room_doors_4">
+			<slot>
+				<direction>right</direction>
+				<number>0</number>
+			</slot>
+		</doors>
+		<drones power="2" room="4" start="false" img="room_drones_6" />
+		<engines power="3" room="14" start="true" img="room_engines_5">
+			<slot>
+				<direction>up</direction>
+				<number>0</number>
+			</slot>
+		</engines>
+		<hacking power="1" room="3" start="false" img="room_hacking_8" />
+		<medbay power="1" room="2" start="true" img="room_medbay_4">
+			<slot>
+				<number>0</number>
+			</slot>
+		</medbay>
+		<mind power="1" room="7" start="false" img="room_mind_6" />
+		<oxygen power="2" room="13" start="true" img="room_oxygen_2" />
+		<pilot power="2" room="12" start="true" img="room_pilot_2">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</pilot>
+		<sensors power="1" room="1" start="true" img="room_sensors_4">
+			<slot>
+				<direction>left</direction>
+				<number>1</number>
+			</slot>
+		</sensors>
+		<teleporter power="1" room="6" start="false" />
+		<weapons power="2" room="10" start="true" img="ancient_artillery">
+			<slot>
+				<direction>down</direction>
+				<number>1</number>
+			</slot>
+		</weapons>
+	</systemList>
+	<weaponSlots>0</weaponSlots>
+	<droneSlots>0</droneSlots>
+	<weaponList missiles="0" count="0" />
+	<droneList drones="0" count="0" />
+	<health amount="30" />
+	<maxPower amount="9" />
+    <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
+</shipBlueprint>
+
 <weaponBlueprint name="ION_TRI_PLAYER">
 	<type>BURST</type>
 	<drone_targetable>0</drone_targetable>
