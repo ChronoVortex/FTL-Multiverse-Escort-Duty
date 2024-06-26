@@ -211,7 +211,7 @@
 	<sysDamage>0</sysDamage>
 	<persDamage>2</persDamage>
 	<accuracyMod>30</accuracyMod>
-	<shots>1</shots>
+	<shots>1</shots> <!-- Increased to 3 via lua -->
 	<sp>0</sp>
 	<fireChance>10</fireChance>
 	<breachChance>0</breachChance>

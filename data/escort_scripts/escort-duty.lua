@@ -12,6 +12,14 @@ local get_ship_crew_point = mods.vertexutil.get_ship_crew_point
 local ShowTutorialArrow = mods.vertexutil.ShowTutorialArrow
 local HideTutorialArrow = mods.vertexutil.HideTutorialArrow
 
+-- Shuffle the elements of an ordered unbroken table
+local function shuffle_table(t)
+    for i = #t, 2, -1 do
+        local j = math.random(i)
+        t[i], t[j] = t[j], t[i]
+    end
+end
+
 -- Check if the game is paused in any way
 local function check_paused()
     return Hyperspace.App.gui.bPaused or Hyperspace.App.gui.menu_pause or Hyperspace.App.gui.event_pause
@@ -99,70 +107,73 @@ local escortDutyShips = {
 ------------------------
 -- CUSTOM DRONE ORBIT --
 ------------------------
-local function calculate_coord_offset(ellipse, angleFromCenter)
-    local angleCos = ellipse.b*math.cos(angleFromCenter)
-    local angleSin = ellipse.a*math.sin(angleFromCenter)
-    local denom = math.sqrt(angleCos^2 + angleSin^2)
-    return (ellipse.a*angleCos)/denom, (ellipse.b*angleSin)/denom
-end
+do
+    -- Utility function for repeated sub-calculation of drone orbit
+    local function calculate_coord_offset(ellipse, angleFromCenter)
+        local angleCos = ellipse.b*math.cos(angleFromCenter)
+        local angleSin = ellipse.a*math.sin(angleFromCenter)
+        local denom = math.sqrt(angleCos^2 + angleSin^2)
+        return (ellipse.a*angleCos)/denom, (ellipse.b*angleSin)/denom
+    end
 
-script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
-    if ship.iShipId == 0 then
-        for shipName, escortData in pairs(escortDutyShips) do
-            -- Check if ship is an escort duty variant
-            if shipName == ship.myBlueprint.blueprintName then
-                local stillActive = {}
-                local activeDroneIds = userdata_table(ship, "mods.escort.dronesActive")
+    script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
+        if ship.iShipId == 0 then
+            for shipName, escortData in pairs(escortDutyShips) do
+                -- Check if ship is an escort duty variant
+                if shipName == ship.myBlueprint.blueprintName then
+                    local stillActive = {}
+                    local activeDroneIds = userdata_table(ship, "mods.escort.dronesActive")
 
-                -- Iterate through all defense drones for the ship
-                for drone in vter(ship.spaceDrones) do
-                    if drone.deployed and drone.blueprint.typeName == "DEFENSE" then
-                        stillActive[drone.selfId] = true
-                        local xOffset = nil
-                        local yOffset = nil
-                        
-                        -- Set drone location to a random point on the ellipse if just deployed
-                        if not activeDroneIds[drone.selfId] then
-                            activeDroneIds[drone.selfId] = true
-                            xOffset, yOffset = calculate_coord_offset(escortData.droneOrbitEllipse, (Hyperspace.random32()%360)*(math.pi/180))
-                            drone:SetCurrentLocation(Hyperspace.Pointf(
-                                escortData.droneOrbitEllipse.center.x + xOffset,
-                                escortData.droneOrbitEllipse.center.y + yOffset))
-                        end
-                        
-                        -- Make the drone orbit the fake ellipse
-                        if drone.powered then
-                            local lookAhead = drone.blueprint.speed*Hyperspace.FPS.SpeedFactor/escortData.droneSpeedFactor
-                            xOffset, yOffset = calculate_coord_offset(escortData.droneOrbitEllipse, math.atan(
-                                drone.currentLocation.y - escortData.droneOrbitEllipse.center.y,
-                                drone.currentLocation.x - escortData.droneOrbitEllipse.center.x))
-                            local xIntersect = escortData.droneOrbitEllipse.center.x + xOffset
-                            local yIntersect = escortData.droneOrbitEllipse.center.y + yOffset
-                            local tanAngle = math.atan((escortData.droneOrbitEllipse.b^2/escortData.droneOrbitEllipse.a^2)*(xOffset/yOffset))
-                            if (drone.currentLocation.y < escortData.droneOrbitEllipse.center.y) then
-                                drone.destinationLocation = Hyperspace.Pointf(
-                                    xIntersect + lookAhead*math.cos(tanAngle),
-                                    yIntersect - lookAhead*math.sin(tanAngle))
-                            else
-                                drone.destinationLocation = Hyperspace.Pointf(
-                                    xIntersect - lookAhead*math.cos(tanAngle),
-                                    yIntersect + lookAhead*math.sin(tanAngle))
+                    -- Iterate through all defense drones for the ship
+                    for drone in vter(ship.spaceDrones) do
+                        if drone.deployed and drone.blueprint.typeName == "DEFENSE" then
+                            stillActive[drone.selfId] = true
+                            local xOffset = nil
+                            local yOffset = nil
+                            
+                            -- Set drone location to a random point on the ellipse if just deployed
+                            if not activeDroneIds[drone.selfId] then
+                                activeDroneIds[drone.selfId] = true
+                                xOffset, yOffset = calculate_coord_offset(escortData.droneOrbitEllipse, (Hyperspace.random32()%360)*(math.pi/180))
+                                drone:SetCurrentLocation(Hyperspace.Pointf(
+                                    escortData.droneOrbitEllipse.center.x + xOffset,
+                                    escortData.droneOrbitEllipse.center.y + yOffset))
+                            end
+                            
+                            -- Make the drone orbit the fake ellipse
+                            if drone.powered then
+                                local lookAhead = drone.blueprint.speed*Hyperspace.FPS.SpeedFactor/escortData.droneSpeedFactor
+                                xOffset, yOffset = calculate_coord_offset(escortData.droneOrbitEllipse, math.atan(
+                                    drone.currentLocation.y - escortData.droneOrbitEllipse.center.y,
+                                    drone.currentLocation.x - escortData.droneOrbitEllipse.center.x))
+                                local xIntersect = escortData.droneOrbitEllipse.center.x + xOffset
+                                local yIntersect = escortData.droneOrbitEllipse.center.y + yOffset
+                                local tanAngle = math.atan((escortData.droneOrbitEllipse.b^2/escortData.droneOrbitEllipse.a^2)*(xOffset/yOffset))
+                                if (drone.currentLocation.y < escortData.droneOrbitEllipse.center.y) then
+                                    drone.destinationLocation = Hyperspace.Pointf(
+                                        xIntersect + lookAhead*math.cos(tanAngle),
+                                        yIntersect - lookAhead*math.sin(tanAngle))
+                                else
+                                    drone.destinationLocation = Hyperspace.Pointf(
+                                        xIntersect - lookAhead*math.cos(tanAngle),
+                                        yIntersect + lookAhead*math.sin(tanAngle))
+                                end
                             end
                         end
                     end
-                end
-                
-                -- Clean out inactive drone IDs
-                for droneId in pairs(activeDroneIds) do
-                    if not stillActive[droneId] then
-                        activeDroneIds[droneId] = nil
+                    
+                    -- Clean out inactive drone IDs
+                    for droneId in pairs(activeDroneIds) do
+                        if not stillActive[droneId] then
+                            activeDroneIds[droneId] = nil
+                        end
                     end
+                    break
                 end
-                break
             end
         end
-    end
-end)
+    end)
+end
 
 -----------------------------
 -- SHORT-RANGE TRANSPORTER --
@@ -207,13 +218,6 @@ end)
 -------------------------
 -- FIRE BOMB ARTILLERY --
 -------------------------
-local function shuffle_table(t)
-    for i = #t, 2, -1 do
-        local j = math.random(i)
-        t[i], t[j] = t[j], t[i]
-    end
-end
-
 do
     -- Utility function for creating the extra fire bombs
     local fireBombBp = Hyperspace.Blueprints:GetWeaponBlueprint("BOMB_CLUSTER_FIRE_ARTILLERY")
@@ -224,7 +228,7 @@ do
     -- Create two extra bombs for the 3-shot cluster and spread the targeting randomly
     script.on_internal_event(Defines.InternalEvents.PROJECTILE_FIRE, function(projectile, weapon)
         local targetShip = Hyperspace.ships(projectile.targetId)
-        if targetShip and weapon and weapon.blueprint and weapon.blueprint.name == "BOMB_CLUSTER_FIRE_ARTILLERY" then
+        if targetShip and weapon and weapon.blueprint and weapon.blueprint.name == fireBombBp.name then
             local rooms = {}
             for room in vter(Hyperspace.ShipGraph.GetShipInfo(targetShip.iShipId).rooms) do
                 table.insert(rooms, room.iRoomId)
