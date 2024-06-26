@@ -2,11 +2,43 @@ if not mods or not mods.vertexutil then
     error("Couldn't find Vertex Tags and Utility Functions! Make sure it's above mods which depend on it in the Slipstream load order")
 end
 
+-------------
+-- UTILITY --
+-------------
 local vter = mods.multiverse.vter
 local userdata_table = mods.multiverse.userdata_table
+local time_increment = mods.multiverse.time_increment
 local get_ship_crew_point = mods.vertexutil.get_ship_crew_point
 local ShowTutorialArrow = mods.vertexutil.ShowTutorialArrow
 local HideTutorialArrow = mods.vertexutil.HideTutorialArrow
+
+-- Check if the game is paused in any way
+local function check_paused()
+    return Hyperspace.App.gui.bPaused or Hyperspace.App.gui.menu_pause or Hyperspace.App.gui.event_pause
+end
+
+-- System for executing code on a delay
+local delayedFuncs = {}
+local function execute_func_delayed(func, args, delay, ignorePause)
+    table.insert(delayedFuncs, {func = func, args = args, time = delay, ignorePause = ignorePause or false})
+end
+script.on_internal_event(Defines.InternalEvents.ON_TICK, function()
+    local delayedFuncCount = #delayedFuncs
+    local index = 1
+    while index <= delayedFuncCount do
+        local delayedFuncData = delayedFuncs[index]
+        if delayedFuncData.ignorePause or not check_paused() then
+            delayedFuncData.time = delayedFuncData.time - time_increment()
+        end
+        if delayedFuncData.time <= 0 then
+            table.remove(delayedFuncs, index)
+            delayedFuncData.func(table.unpack(delayedFuncData.args))
+            delayedFuncCount = delayedFuncCount - 1
+        else
+            index = index + 1
+        end
+    end
+end)
 
 ---------------
 -- SHIP DATA --
@@ -182,20 +214,28 @@ local function shuffle_table(t)
     end
 end
 
--- Create the extra two bombs for the 3-shot cluster and spread the targeting randomly
-script.on_internal_event(Defines.InternalEvents.PROJECTILE_FIRE, function(projectile, weapon)
-    local targetShip = Hyperspace.ships(projectile.targetId)
-    if targetShip and weapon and weapon.blueprint and weapon.blueprint.name == "BOMB_CLUSTER_FIRE_ARTILLERY" then
-        local rooms = {}
-        for room in vter(Hyperspace.ShipGraph.GetShipInfo(targetShip.iShipId).rooms) do
-            table.insert(rooms, room.iRoomId)
-        end
-        if #rooms >= 3 then
-            shuffle_table(rooms)
-            Hyperspace.App.world.space:CreateBomb(weapon.blueprint, projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace)
-            Hyperspace.App.world.space:CreateBomb(weapon.blueprint, projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace)
-            projectile.target = targetShip:GetRoomCenter(table.remove(rooms, #rooms))
-            projectile:ComputeHeading()
-        end
+do
+    -- Utility function for creating the extra fire bombs
+    local fireBombBp = Hyperspace.Blueprints:GetWeaponBlueprint("BOMB_CLUSTER_FIRE_ARTILLERY")
+    local function create_fire_bomb(owner, target, space)
+        Hyperspace.App.world.space:CreateBomb(fireBombBp, owner, target, space)
     end
-end)
+
+    -- Create two extra bombs for the 3-shot cluster and spread the targeting randomly
+    script.on_internal_event(Defines.InternalEvents.PROJECTILE_FIRE, function(projectile, weapon)
+        local targetShip = Hyperspace.ships(projectile.targetId)
+        if targetShip and weapon and weapon.blueprint and weapon.blueprint.name == "BOMB_CLUSTER_FIRE_ARTILLERY" then
+            local rooms = {}
+            for room in vter(Hyperspace.ShipGraph.GetShipInfo(targetShip.iShipId).rooms) do
+                table.insert(rooms, room.iRoomId)
+            end
+            if #rooms >= 3 then
+                shuffle_table(rooms)
+                projectile.target = targetShip:GetRoomCenter(table.remove(rooms, #rooms))
+                projectile:ComputeHeading()
+                execute_func_delayed(create_fire_bomb, {projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace}, 0.1)
+                execute_func_delayed(create_fire_bomb, {projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace}, 0.2)
+            end
+        end
+    end)
+end

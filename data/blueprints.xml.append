@@ -205,8 +205,8 @@
 	<title>Fire Bomb Artillery</title>
 	<short>Artillery</short>
 	<locked>1</locked>
-	<desc>[Base cooldown: 25] Fires a cluster of 3 bombs that damage crew-members and light fires.</desc>
-	<tooltip>Artillery: Fires a cluster of 3 bombs that damage crew-members and light fires.</tooltip>
+	<desc>[Base cooldown: 25] Fires a cluster of 3 bombs that damage crew and light fires.</desc>
+	<tooltip>Artillery: Fires a cluster of 3 bombs that damage crew and light fires.</tooltip>
 	<damage>0</damage>
 	<sysDamage>0</sysDamage>
 	<persDamage>2</persDamage>
