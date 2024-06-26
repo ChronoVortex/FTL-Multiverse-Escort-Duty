@@ -57,3 +57,14 @@
     <desc length="4" x="0" y="0" />
     <time>0.5</time>
 </anim>
+
+<animSheet name="bomblauncher_cluster_fire" w="768" h="80" fw="48" fh="80">weapons/bomblauncher_cluster_fire_strip16.png</animSheet>
+<weaponAnim name="bomblauncher_cluster_fire">
+	<sheet>bomblauncher_cluster_fire</sheet>
+	<desc length="16" x="0" y="0"/>
+	<chargedFrame>1</chargedFrame>
+	<fireFrame>12</fireFrame>
+	<firePoint x="21" y="49" />
+	<mountPoint x="4" y="46" />
+	<chargeImage>weapons/bomblauncher_cluster_fire_glow.png</chargeImage>
+</weaponAnim>

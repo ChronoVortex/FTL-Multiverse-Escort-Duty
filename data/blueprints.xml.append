@@ -82,7 +82,7 @@
     <unlock>Complete 2/3 of the Escort Duty Achievements to unlock this ship.</unlock>
 	<desc>Originally on a simple mission to deliver Lost Sun dignitaries for negotiations, these ships now find themselves stranded in the Multiverse and must combine their strengths to survive.</desc>
 	<systemList>
-		<artillery power="1" room="5" start="true" weapon="BOMB_CLUSTER" img="room_artillery" />
+		<artillery max="4" power="1" room="4" start="true" weapon="BOMB_CLUSTER_FIRE_ARTILLERY" img="room_escort_c_artillery" />
 		<battery max="2" power="1" room="0" start="false" img="room_battery_6" />
 		<cloaking power="1" room="11" start="true" img="room_cloaking_13" />
 		<clonebay power="1" room="2" start="false">
@@ -90,17 +90,17 @@
 				<number>0</number>
 			</slot>
 		</clonebay>
-		<doors power="2" room="8" start="true" img="room_escort_c_doors">
+		<doors power="2" room="1" start="true" img="room_doors_6">
 			<slot>
 				<direction>right</direction>
-				<number>0</number>
+				<number>1</number>
 			</slot>
 		</doors>
-		<drones max="8" power="2" room="4" start="false" img="room_drones_6" />
-		<engines power="3" room="14" start="true" img="room_engines_5">
+		<drones max="8" power="2" room="5" start="false" img="room_drones_16" />
+		<engines power="3" room="12" start="true" img="room_escort_c_engines">
 			<slot>
-				<direction>up</direction>
-				<number>0</number>
+				<direction>right</direction>
+				<number>1</number>
 			</slot>
 		</engines>
 		<hacking power="1" room="3" start="false" img="room_hacking_8" />
@@ -110,17 +110,17 @@
 			</slot>
 		</medbay>
 		<mind power="1" room="7" start="false" img="room_mind_6" />
-		<oxygen power="2" room="13" start="true" img="room_oxygen_2" />
-		<pilot power="2" room="12" start="true" img="room_pilot_2">
+		<oxygen power="2" room="14" start="true" img="room_oxygen_8" />
+		<pilot power="2" room="8" start="true" img="room_pilot">
 			<slot>
 				<direction>right</direction>
-				<number>1</number>
+				<number>0</number>
 			</slot>
 		</pilot>
-		<sensors power="1" room="1" start="true" img="room_sensors_4">
+		<sensors power="1" room="13" start="true" img="room_sensors_2">
 			<slot>
-				<direction>left</direction>
-				<number>1</number>
+				<direction>up</direction>
+				<number>0</number>
 			</slot>
 		</sensors>
 		<teleporter power="1" room="6" start="false" />
@@ -141,7 +141,6 @@
 	<droneList drones="2" count="2" />
 	<health amount="30" />
 	<maxPower amount="9" />
-	<crewCount amount="2" class="human_soldier" />
 	<aug name="SYNTHESIZED_ARMOR" />
 	<aug name="EX_CLOAK_FIRE" />
 	<aug name="EX_EXPLOSIVE_REPLICATOR" />
@@ -198,6 +197,39 @@
 	</missSounds>
 	<weaponArt>ion_dual</weaponArt>
 	<iconImage>ion</iconImage>
+</weaponBlueprint>
+
+<weaponBlueprint name="BOMB_CLUSTER_FIRE_ARTILLERY">
+	<type>BOMB</type>
+	<tip>tip_bombs</tip>
+	<title>Fire Bomb Artillery</title>
+	<short>Artillery</short>
+	<locked>1</locked>
+	<desc>[Base cooldown: 25] Fires a cluster of 3 bombs that damage crew-members and light fires.</desc>
+	<tooltip>Artillery: Fires a cluster of 3 bombs that damage crew-members and light fires.</tooltip>
+	<damage>0</damage>
+	<sysDamage>0</sysDamage>
+	<persDamage>2</persDamage>
+	<accuracyMod>30</accuracyMod>
+	<shots>1</shots>
+	<sp>0</sp>
+	<fireChance>10</fireChance>
+	<breachChance>0</breachChance>
+	<cooldown>25</cooldown>
+	<power>1</power>
+	<cost>50</cost>
+	<bp>5</bp>
+	<rarity>0</rarity>
+	<image>bomb_fire</image>
+	<explosion>explosion_random</explosion>
+	<launchSounds>
+		<sound>bombTeleport</sound>
+	</launchSounds>
+	<hitShipSounds>
+		<sound>fireBomb</sound>
+	</hitShipSounds>
+	<weaponArt>bomblauncher_cluster_fire</weaponArt>
+	<iconImage>bomb</iconImage>
 </weaponBlueprint>
 
 <augBlueprint name="SYNTHESIZED_ARMOR">

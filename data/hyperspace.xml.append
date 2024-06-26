@@ -54,6 +54,8 @@
 	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_3">
 		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
         <crew>
+            <human_soldier room="12" />
+            <human_soldier room="10" />
             <rock_commando room="8" />
             <rock_commando room="1" />
         </crew>

@@ -9,6 +9,9 @@
 <roomLayout name="escort_weapons">
 	<computerGlow x="40" y="0" dir="UP" />
 </roomLayout>
+<roomLayout name="escort_c_engines">
+	<computerGlow name="glow_pilot" x="54" y="9" dir="RIGHT" />
+</roomLayout>
 <roomLayout name="escort_c_weapons">
 	<computerGlow x="40" y="19" dir="DOWN" />
 </roomLayout>

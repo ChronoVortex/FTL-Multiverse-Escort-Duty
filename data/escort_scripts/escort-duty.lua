@@ -171,3 +171,31 @@ script.on_game_event("LUA_ESCORT_TELEPORT", false, function()
         end
     end
 end)
+
+-------------------------
+-- FIRE BOMB ARTILLERY --
+-------------------------
+local function shuffle_table(t)
+    for i = #t, 2, -1 do
+        local j = math.random(i)
+        t[i], t[j] = t[j], t[i]
+    end
+end
+
+-- Create the extra two bombs for the 3-shot cluster and spread the targeting randomly
+script.on_internal_event(Defines.InternalEvents.PROJECTILE_FIRE, function(projectile, weapon)
+    local targetShip = Hyperspace.ships(projectile.targetId)
+    if targetShip and weapon and weapon.blueprint and weapon.blueprint.name == "BOMB_CLUSTER_FIRE_ARTILLERY" then
+        local rooms = {}
+        for room in vter(Hyperspace.ShipGraph.GetShipInfo(targetShip.iShipId).rooms) do
+            table.insert(rooms, room.iRoomId)
+        end
+        if #rooms >= 3 then
+            shuffle_table(rooms)
+            Hyperspace.App.world.space:CreateBomb(weapon.blueprint, projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace)
+            Hyperspace.App.world.space:CreateBomb(weapon.blueprint, projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace)
+            projectile.target = targetShip:GetRoomCenter(table.remove(rooms, #rooms))
+            projectile:ComputeHeading()
+        end
+    end
+end)
