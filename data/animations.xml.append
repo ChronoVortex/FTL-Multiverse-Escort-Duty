@@ -58,6 +58,13 @@
     <time>0.5</time>
 </anim>
 
+<animSheet name="escort_c_engine_fighter" w="64" h="16" fw="16" fh="16">effects/escort_c_engine_fighter.png</animSheet>
+<anim name="escort_c_engine_fighter">
+    <sheet>escort_c_engine_fighter</sheet>
+    <desc length="4" x="0" y="0" />
+    <time>0.5</time>
+</anim>
+
 <animSheet name="bomblauncher_cluster_fire" w="768" h="80" fw="48" fh="80">weapons/bomblauncher_cluster_fire_strip16.png</animSheet>
 <weaponAnim name="bomblauncher_cluster_fire">
 	<sheet>bomblauncher_cluster_fire</sheet>
