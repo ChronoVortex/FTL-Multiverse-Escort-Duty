@@ -60,6 +60,18 @@
             <rock_commando room="1" />
         </crew>
         <rooms>
+            <room id="0">
+                <roomAnim renderLayer="1">escort_c_decor_1</roomAnim>
+            </room>
+            <room id="3">
+                <roomAnim renderLayer="1">escort_c_decor_2</roomAnim>
+            </room>
+            <room id="5">
+                <roomAnim renderLayer="1">escort_c_decor_3</roomAnim>
+            </room>
+            <room id="7">
+                <roomAnim renderLayer="1">escort_c_decor_4</roomAnim>
+            </room>
 			<room id="11">
 				<roomAnim renderLayer="0">resist_2x1</roomAnim>
                 <roomAnim renderLayer="3">resist_icon</roomAnim>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<img x="-71" y="-9" w="553" h="440" />
+<img x="-71" y="-9" w="553" h="443" />
 <offsets>
 	<floor x="65" y="3" />
-	<cloak x="276" y="220" />
+	<cloak x="-8" y="-8" />
 </offsets>
 <weaponMounts>
 	<mount x="495" y="73" rotate="true" mirror="true" gib="-1" slide="right" />

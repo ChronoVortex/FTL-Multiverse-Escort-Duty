@@ -39,6 +39,31 @@
 	<time>1</time>
 </anim>
 
+<animSheet name="escort_c_decor_1" w="35" h="70" fw="35" fh="70">ship/interior/escort_c_decor_1.png</animSheet>
+<anim name="escort_c_decor_1">
+	<sheet>escort_c_decor_1</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_c_decor_2" w="70" h="70" fw="70" fh="70">ship/interior/escort_c_decor_2.png</animSheet>
+<anim name="escort_c_decor_2">
+	<sheet>escort_c_decor_2</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_c_decor_3" w="70" h="70" fw="70" fh="70">ship/interior/escort_c_decor_3.png</animSheet>
+<anim name="escort_c_decor_3">
+	<sheet>escort_c_decor_3</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_c_decor_4" w="35" h="70" fw="35" fh="70">ship/interior/escort_c_decor_4.png</animSheet>
+<anim name="escort_c_decor_4">
+	<sheet>escort_c_decor_4</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+
 <animSheet name="escort_engine_fighter" w="64" h="13" fw="16" fh="13">effects/escort_engine_fighter.png</animSheet>
 <anim name="escort_engine_fighter">
     <sheet>escort_engine_fighter</sheet>

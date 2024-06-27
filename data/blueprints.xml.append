@@ -96,20 +96,20 @@
 				<number>1</number>
 			</slot>
 		</doors>
-		<drones max="8" power="2" room="5" start="false" img="room_drones_16" />
+		<drones max="8" power="2" room="5" start="false" img="room_escort_c_drones" />
 		<engines power="3" room="12" start="true" img="room_escort_c_engines">
 			<slot>
 				<direction>right</direction>
 				<number>1</number>
 			</slot>
 		</engines>
-		<hacking power="1" room="3" start="false" img="room_hacking_8" />
+		<hacking power="1" room="3" start="false" img="room_hacking_7" />
 		<medbay power="1" room="2" start="true" img="room_medbay_4">
 			<slot>
 				<number>0</number>
 			</slot>
 		</medbay>
-		<mind power="1" room="7" start="false" img="room_mind_6" />
+		<mind power="1" room="7" start="false" img="room_escort_c_mind" />
 		<oxygen power="2" room="14" start="true" img="room_oxygen_8" />
 		<pilot power="2" room="8" start="true" img="room_pilot">
 			<slot>
