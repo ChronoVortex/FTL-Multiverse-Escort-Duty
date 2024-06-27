@@ -144,7 +144,7 @@
 	<aug name="SYNTHESIZED_ARMOR" />
 	<aug name="EX_CLOAK_FIRE" />
 	<aug name="EX_EXPLOSIVE_REPLICATOR" />
-    <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
+    <mv-mapImage offset="-44">map_icon_escort_duty_c</mv-mapImage>
 </shipBlueprint>
 
 <weaponBlueprint name="ION_TRI_PLAYER">
