@@ -222,7 +222,11 @@ do
     -- Utility function for creating the extra fire bombs
     local fireBombBp = Hyperspace.Blueprints:GetWeaponBlueprint("BOMB_CLUSTER_FIRE_ARTILLERY")
     local function create_fire_bomb(owner, target, space)
-        Hyperspace.App.world.space:CreateBomb(fireBombBp, owner, target, space)
+        local bomb = Hyperspace.App.world.space:CreateBomb(fireBombBp, owner, target, space)
+        local ship = Hyperspace.ships(owner)
+        if ship and ship:HasEquipment("ZOLTAN_BYPASS") > 0 then
+            bomb.superShieldBypass = true
+        end
     end
 
     -- Create two extra bombs for the 3-shot cluster and spread the targeting randomly
