@@ -86,7 +86,7 @@ local escortDutyShips = {
             a = 213,
             b = 152
         },
-        droneSpeedFactor = 1.6,
+        droneSpeedFactor = 1.7,
         tpLinkages = {
             -- Coordinates of the individual TP pads on the escort fighter
             tpRoomShip1 = 9,
@@ -121,6 +121,9 @@ do
             for shipName, escortData in pairs(escortDutyShips) do
                 -- Check if ship is an escort duty variant
                 if shipName == ship.myBlueprint.blueprintName then
+                    -- No custom ellipse to orbit
+                    if not escortData.droneOrbitEllipse then break end
+
                     local stillActive = {}
                     local activeDroneIds = userdata_table(ship, "mods.escort.dronesActive")
 
