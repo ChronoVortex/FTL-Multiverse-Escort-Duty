@@ -224,12 +224,8 @@ end)
 do
     -- Utility function for creating the extra fire bombs
     local fireBombBp = Hyperspace.Blueprints:GetWeaponBlueprint("BOMB_CLUSTER_FIRE_ARTILLERY")
-    local function create_fire_bomb(owner, target, space)
-        local bomb = Hyperspace.App.world.space:CreateBomb(fireBombBp, owner, target, space)
-        local ship = Hyperspace.ships(owner)
-        if ship and ship:HasEquipment("ZOLTAN_BYPASS") > 0 then
-            bomb.superShieldBypass = true
-        end
+    local function create_fire_bomb(owner, target, space, bypass)
+        Hyperspace.App.world.space:CreateBomb(fireBombBp, owner, target, space).superShieldBypass = bypass
     end
 
     -- Create two extra bombs for the 3-shot cluster and spread the targeting randomly
@@ -244,8 +240,8 @@ do
                 shuffle_table(rooms)
                 projectile.target = targetShip:GetRoomCenter(table.remove(rooms, #rooms))
                 projectile:ComputeHeading()
-                execute_func_delayed(create_fire_bomb, {projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace}, 0.1)
-                execute_func_delayed(create_fire_bomb, {projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace}, 0.2)
+                execute_func_delayed(create_fire_bomb, {projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace, projectile.superShieldBypass}, 0.1)
+                execute_func_delayed(create_fire_bomb, {projectile.ownerId, targetShip:GetRoomCenter(table.remove(rooms, #rooms)), projectile.destinationSpace, projectile.superShieldBypass}, 0.2)
             end
         end
     end)
