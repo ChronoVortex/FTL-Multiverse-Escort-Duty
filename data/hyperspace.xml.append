@@ -101,7 +101,8 @@
 			</statBoost>
 		</statBoosts>
 		<function name="SYSTEM_CASING" value="0.15" useForReqs="true" warning="false"/>
-        <function name="ROCK_ARMOR" value="0.20" useForReqs="true" warning="false"/>
+        <function name="ROCK_ARMOR" value="0.10" useForReqs="true"/>
+        <function name="SLUG_GEL" value="0.25" useForReqs="false"/>
         <locked/>
     </mod-append:aug>
 </mod:findLike>
