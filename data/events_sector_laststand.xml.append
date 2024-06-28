@@ -3,7 +3,7 @@
 <mod:findName type="event" name="TRUE_LAST_STAND_START" panic="true">
     <mod:findLike type="choice" limit="1">
         <mod:findLike type="event">
-            <mod-append:choice hidden="true" max_group="1" req="SHIP PLAYER_SHIP_ESCORT_DUTY" blue="false">
+            <mod-append:choice hidden="true" max_group="1" req="ESCORT_DUTY_ACTIVE" blue="false">
                 <text>Contact Federation command.</text>
                 <event>
                     <text>On the vidscreen appears several Federation and Engi officers, as well as Admiral Tully in the center. "So you're the supply convoy we were promised? It's a little late for that, the Flagship is bearing down on us and we need every available ship on the front lines. I hope you're ready."</text>

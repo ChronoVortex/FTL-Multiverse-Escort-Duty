@@ -1,0 +1,28 @@
+<mod:findName type="blueprintList" name="LIST_WEAPONS_ALL">
+    <mod-append:name>ION_TRI_PLAYER</mod-append:name>
+    <mod-append:name>BOMB_CLUSTER_FIRE_ARTILLERY</mod-append:name>
+</mod:findName>
+
+<mod:findName type="blueprintList" name="BLUELIST_ION">
+    <mod-append:name>ION_TRI_PLAYER</mod-append:name>
+</mod:findName>
+
+<mod:findName type="blueprintList" name="BLUELIST_BOMBS_CREWDAMAGE">
+    <mod-append:name>BOMB_CLUSTER_FIRE_ARTILLERY</mod-append:name>
+</mod:findName>
+<mod:findName type="blueprintList" name="BLUELIST_WEAPONS_FIRE_ALL">
+    <mod-append:name>BOMB_CLUSTER_FIRE_ARTILLERY</mod-append:name>
+</mod:findName>
+<mod:findName type="blueprintList" name="BLUELIST_WEAPONS_FIRE_NODAMAGE">
+    <mod-append:name>BOMB_CLUSTER_FIRE_ARTILLERY</mod-append:name>
+</mod:findName>
+<mod:findName type="blueprintList" name="BLUELIST_FIRE_ALL">
+    <mod-append:name>BOMB_CLUSTER_FIRE_ARTILLERY</mod-append:name>
+</mod:findName>
+<mod:findName type="blueprintList" name="BLUELIST_FIRE_BALLISTIC">
+    <mod-append:name>BOMB_CLUSTER_FIRE_ARTILLERY</mod-append:name>
+</mod:findName>
+
+<mod:findName type="blueprintList" name="BLUELIST_ARMOR">
+    <mod-append:name>SYNTHESIZED_ARMOR</mod-append:name>
+</mod:findName>

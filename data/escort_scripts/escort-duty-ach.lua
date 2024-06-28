@@ -2,11 +2,8 @@
 -- HELPER FUNCTIONS --
 ----------------------
 
-local userdata_table = mods.vertexutil.userdata_table
-
-local function string_starts(str, start)
-    return string.sub(str, 1, string.len(start)) == start
-end
+local userdata_table = mods.multiverse.userdata_table
+local string_starts = mods.multiverse.string_starts
 
 local function should_track_achievement(achievement, ship, shipClassName)
     return ship and
@@ -17,6 +14,16 @@ end
 
 local function current_sector()
     return Hyperspace.Global.GetInstance():GetCApp().world.starMap.worldLevel + 1
+end
+
+local function count_ship_achievements(achPrefix)
+    local count = 0
+    for i = 1, 3 do
+        if Hyperspace.CustomAchievementTracker.instance:GetAchievementStatus(achPrefix.."_"..tostring(i)) > -1 then
+            count = count + 1
+        end
+    end
+    return count
 end
 
 -- Track changes in player ship hull value
@@ -85,6 +92,26 @@ script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
         end
         if current_sector() >= 5 then
             Hyperspace.CustomAchievementTracker.instance:SetAchievement("ACH_SHIP_ESCORT_DUTY_3", false)
+        end
+    end
+end)
+
+-------------------------------------
+-- LAYOUT UNLOCKS FOR ACHIEVEMENTS --
+-------------------------------------
+
+local achLayoutUnlocks = {
+    {
+        achPrefix = "ACH_SHIP_ESCORT_DUTY",
+        unlockShip = "PLAYER_SHIP_ESCORT_DUTY_3"
+    }
+}
+
+script.on_internal_event(Defines.InternalEvents.ON_TICK, function()
+    local unlockTracker = Hyperspace.CustomShipUnlocks.instance
+    for _, unlockData in ipairs(achLayoutUnlocks) do
+        if not unlockTracker:GetCustomShipUnlocked(unlockData.unlockShip) and count_ship_achievements(unlockData.achPrefix) >= 2 then
+            unlockTracker:UnlockShip(unlockData.unlockShip, false)
         end
     end
 end)
