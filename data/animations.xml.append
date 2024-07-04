@@ -13,6 +13,19 @@
 	<time>1</time>
 </anim>
 
+<animSheet name="telepad_on_escort_c_1" w="35" h="70" fw="35" fh="70">ship/interior/telepad_on_escort_c_1.png</animSheet>
+<anim name="telepad_on_escort_c_1">
+	<sheet>telepad_on_escort_c_1</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="telepad_on_escort_c_2" w="70" h="70" fw="70" fh="70">ship/interior/telepad_on_escort_c_2.png</animSheet>
+<anim name="telepad_on_escort_c_2">
+	<sheet>telepad_on_escort_c_2</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+
 <animSheet name="escort_decor_crate_stack" w="70" h="70" fw="70" fh="70">ship/interior/escort_decor_crate_stack.png</animSheet>
 <anim name="escort_decor_crate_stack">
 	<sheet>escort_decor_crate_stack</sheet>
@@ -22,6 +35,31 @@
 <animSheet name="escort_decor_fuel_cell" w="70" h="70" fw="70" fh="70">ship/interior/escort_decor_fuel_cell.png</animSheet>
 <anim name="escort_decor_fuel_cell">
 	<sheet>escort_decor_fuel_cell</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+
+<animSheet name="escort_c_decor_1" w="35" h="70" fw="35" fh="70">ship/interior/escort_c_decor_1.png</animSheet>
+<anim name="escort_c_decor_1">
+	<sheet>escort_c_decor_1</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_c_decor_2" w="70" h="70" fw="70" fh="70">ship/interior/escort_c_decor_2.png</animSheet>
+<anim name="escort_c_decor_2">
+	<sheet>escort_c_decor_2</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_c_decor_3" w="70" h="70" fw="70" fh="70">ship/interior/escort_c_decor_3.png</animSheet>
+<anim name="escort_c_decor_3">
+	<sheet>escort_c_decor_3</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_c_decor_4" w="35" h="70" fw="35" fh="70">ship/interior/escort_c_decor_4.png</animSheet>
+<anim name="escort_c_decor_4">
+	<sheet>escort_c_decor_4</sheet>
 	<desc length="1" x="0" y="0"/>
 	<time>1</time>
 </anim>
@@ -44,3 +82,21 @@
     <desc length="4" x="0" y="0" />
     <time>0.5</time>
 </anim>
+
+<animSheet name="escort_c_engine_fighter" w="64" h="16" fw="16" fh="16">effects/escort_c_engine_fighter.png</animSheet>
+<anim name="escort_c_engine_fighter">
+    <sheet>escort_c_engine_fighter</sheet>
+    <desc length="4" x="0" y="0" />
+    <time>0.5</time>
+</anim>
+
+<animSheet name="bomblauncher_cluster_fire" w="768" h="80" fw="48" fh="80">weapons/bomblauncher_cluster_fire_strip16.png</animSheet>
+<weaponAnim name="bomblauncher_cluster_fire">
+	<sheet>bomblauncher_cluster_fire</sheet>
+	<desc length="16" x="0" y="0"/>
+	<chargedFrame>1</chargedFrame>
+	<fireFrame>12</fireFrame>
+	<firePoint x="21" y="49" />
+	<mountPoint x="4" y="46" />
+	<chargeImage>weapons/bomblauncher_cluster_fire_glow.png</chargeImage>
+</weaponAnim>
