@@ -60,24 +60,11 @@ script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
 end)
 
 -- Normal
-script.on_internal_event(Defines.InternalEvents.DRONE_FIRE, function(projectile, drone)
-    if drone.iShipId == 0 and drone.blueprint.targetType == 4 and drone.blueprint.typeName == "DEFENSE" and should_track_achievement("ACH_SHIP_ESCORT_DUTY_2", Hyperspace.ships.player, "PLAYER_SHIP_ESCORT_DUTY") then
-        userdata_table(projectile, "mods.escort.achTracking").firedFromProjDrone = true
-    end
-end)
-local function check_drone_ach_kill(drone, projectile, damage, response)
-    return damage.iIonDamage <= 0 and
-           damage.iDamage > 0 and
-           response.collision_type == 1 and
-           drone.iShipId == 1 and
-           drone.blueprint.typeName == "COMBAT" and
-           should_track_achievement("ACH_SHIP_ESCORT_DUTY_2", Hyperspace.ships.player, "PLAYER_SHIP_ESCORT_DUTY") and
-           userdata_table(projectile, "mods.escort.achTracking").firedFromProjDrone
-end
-script.on_internal_event(Defines.InternalEvents.DRONE_COLLISION, function(drone, projectile, damage, response)
-    if check_drone_ach_kill(drone, projectile, damage, response) then
-        Hyperspace.playerVariables.loc_escort_drones_destroyed = Hyperspace.playerVariables.loc_escort_drones_destroyed + 1
-        if Hyperspace.playerVariables.loc_escort_drones_destroyed >= 2 then
+script.on_internal_event(Defines.InternalEvents.JUMP_ARRIVE, function(ship)
+    local event = Hyperspace.App.world.starMap.currentLoc.event
+    if should_track_achievement("ACH_SHIP_ESCORT_DUTY_2", ship, "PLAYER_SHIP_ESCORT_DUTY") and event and event.environment == 1 then
+        Hyperspace.playerVariables.loc_escort_asteroid_visits = Hyperspace.playerVariables.loc_escort_asteroid_visits + 1
+        if Hyperspace.playerVariables.loc_escort_asteroid_visits >= 4 then
             Hyperspace.CustomAchievementTracker.instance:SetAchievement("ACH_SHIP_ESCORT_DUTY_2", false)
         end
     end

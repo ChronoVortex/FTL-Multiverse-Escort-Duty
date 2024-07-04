@@ -20,8 +20,8 @@
             <lockImage>escort_ach_1_lock</lockImage>
         </achievement>
         <achievement name="ACH_SHIP_ESCORT_DUTY_2" layout="all">
-            <name>The Best Defense Is a Good Offense</name>
-            <description>Destroy 2 enemy combat drones with an anti-projectile defense drone in one run while using Escort Duty.</description>
+            <name>Never Tell Me the Odds!</name>
+            <description>Visit 4 beacons inside asteroid fields during one run while using Escort Duty.</description>
             <icon>escort_ach_2</icon>
             <lockImage>escort_ach_2_lock</lockImage>
         </achievement>
@@ -109,7 +109,7 @@
 
 <mod:findLike type="events" limit="1">
     <mod-append:variable name="loc_escort_teleport_charged" op="set" val="1"/>
-    <mod-append:variable name="loc_escort_drones_destroyed" op="set" val="0"/>
+    <mod-append:variable name="loc_escort_asteroid_visits" op="set" val="0"/>
     <mod-append:variable name="loc_escort_damage_taken" op="set" val="0"/>
     
     <mod-append:req name="ESCORT_DUTY_ACTIVE" type="any">
