@@ -9,7 +9,12 @@
 </mod:findLike>
 
 <mod:findLike type="ships" limit="1">
-	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="false" c="true">
+	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="true" c="true">
+        <unlock variant="b" silent="false">
+            <type>1</type>
+            <shipReq>PLAYER_SHIP_ESCORT_DUTY</shipReq>
+            <value>8</value>
+        </unlock>
         <unlock variant="c" silent="false">
             <type>4</type>
         </unlock>
@@ -50,6 +55,9 @@
                 <roomAnim renderLayer="1">telepad_on_escort_2</roomAnim>
             </room>
         </rooms>
+	</mod-append:customShip>
+	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_2">
+		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
 	</mod-append:customShip>
 	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_3">
 		<hiddenAug>FOR_MULTIVERSE</hiddenAug>

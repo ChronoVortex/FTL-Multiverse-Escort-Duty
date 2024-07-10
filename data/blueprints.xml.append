@@ -76,6 +76,86 @@
     <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
 </shipBlueprint>
 
+<shipBlueprint name="PLAYER_SHIP_ESCORT_DUTY_2" layout="escort_b" img="escort_b">
+	<class>Escort Duty</class>
+	<name>Ostentation</name>
+    <unlock>Get to Sector 8 with Escort Duty Type A to unlock this ship.</unlock>
+	<desc>The Ministry's confidence in its energy shield tech has left these ships with a major weakness - while able to support a shield system that can encompass both vessels, it cannot be upgraded beyond its first bubble.</desc>
+	<systemList>
+		<battery max="2" power="1" room="6" start="false" img="room_battery" />
+		<cloaking power="1" room="5" start="false" img="room_cloaking_3" />
+		<clonebay power="1" room="10" start="true">
+			<slot>
+				<number>0</number>
+			</slot>
+		</clonebay>
+		<doors power="1" room="15" start="true" img="room_doors_9">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</doors>
+		<drones max="8" power="2" room="9" start="true" img="room_drones_8" />
+		<engines power="1" room="0" start="true" img="room_engines_2">
+			<slot>
+				<direction>down</direction>
+				<number>2</number>
+			</slot>
+		</engines>
+		<hacking power="1" room="7" start="false" img="room_escort_b_hacking" />
+		<medbay power="1" room="3" start="false" img="room_medbay_3">
+			<slot>
+				<number>3</number>
+			</slot>
+		</medbay>
+		<mind power="1" room="1" start="false" img="room_mind_2" />
+		<oxygen power="1" room="2" start="true" img="room_escort_b_oxygen" />
+		<pilot power="1" room="11" start="true" img="room_escort_b_pilot">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</pilot>
+		<sensors power="1" room="8" start="true" img="room_sensors_3">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</sensors>
+		<shields max="8" power="1" room="4" start="true" img="room_escort_b_shields">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</shields>
+		<teleporter power="1" room="12" start="false" />
+		<weapons max="8" power="2" room="13" start="true" img="room_escort_b_weapons">
+			<slot>
+				<direction>down</direction>
+				<number>1</number>
+			</slot>
+		</weapons>
+	</systemList>
+    <weaponSlots>3</weaponSlots>
+    <droneSlots>3</droneSlots>
+    <weaponList missiles="0" count="3">
+        <weapon name="ENERGY_2" />
+        <weapon name="BEAM_CONSERVATIVE" />
+    </weaponList>
+    <droneList drones="15" count="2">
+        <drone name="DRONE_SHIELD_POWERLESS" />
+        <drone name="SHIP_REPAIR" />
+    </droneList>
+	<health amount="30" />
+	<maxPower amount="2" />
+    <crewCount amount="1" class="zoltan_peacekeeper" />
+    <crewCount amount="1" class="zoltan_monk" />
+    <crewCount amount="1" class="zoltan_peacekeeper" />
+    <crewCount amount="1" class="zoltan_monk" />
+    <aug name="ADV_SCANNERS" />
+    <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
+</shipBlueprint>
+
 <shipBlueprint name="PLAYER_SHIP_ESCORT_DUTY_3" layout="escort_c" img="escort_c">
     <class>Escort Duty</class>
     <name>Parliament</name>
@@ -124,7 +204,7 @@
             </slot>
         </sensors>
         <teleporter power="1" room="6" start="false" />
-        <weapons max="8" power="3" room="10" start="true" img="room_escort_c_weapons">
+        <weapons max="8" power="3" room="10" start="true" img="room_escort_b_weapons">
             <slot>
                 <direction>down</direction>
                 <number>1</number>
