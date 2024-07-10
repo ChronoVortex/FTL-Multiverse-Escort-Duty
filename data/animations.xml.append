@@ -39,6 +39,13 @@
 	<time>1</time>
 </anim>
 
+<animSheet name="escort_b_decor_1" w="70" h="70" fw="70" fh="70">ship/interior/escort_b_decor_1.png</animSheet>
+<anim name="escort_b_decor_1">
+	<sheet>escort_b_decor_1</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+
 <animSheet name="escort_c_decor_1" w="35" h="70" fw="35" fh="70">ship/interior/escort_c_decor_1.png</animSheet>
 <anim name="escort_c_decor_1">
 	<sheet>escort_c_decor_1</sheet>

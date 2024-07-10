@@ -58,6 +58,19 @@
 	</mod-append:customShip>
 	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_2">
 		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
+        <rooms>
+            <room id="3">
+                <roomAnim renderLayer="1">escort_b_decor_1</roomAnim>
+            </room>
+            <room id="6">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+            <room id="14">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+        </rooms>
 	</mod-append:customShip>
 	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_3">
 		<hiddenAug>FOR_MULTIVERSE</hiddenAug>

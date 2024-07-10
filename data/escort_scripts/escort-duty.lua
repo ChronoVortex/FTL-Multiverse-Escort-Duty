@@ -77,6 +77,22 @@ local escortDutyShips = {
             }
         }
     },
+    PLAYER_SHIP_ESCORT_DUTY_2 = {
+        tpLinkages = {
+            -- Coordinates of the individual TP pads on the escort fighter
+            tpRoomShip1 = 14,
+            tpPadsShip1 = {
+                { x = 350, y = 210, slot = 0 },
+                { x = 385, y = 210, slot = 1 }
+            },
+            -- Coordinates of the individual TP pads on the freighter
+            tpRoomShip2 = 6,
+            tpPadsShip2 = {
+                { x = 210, y = 105, slot = 0 },
+                { x = 245, y = 105, slot = 1 },
+            }
+        }
+    },
     PLAYER_SHIP_ESCORT_DUTY_3 = {
         droneOrbitEllipse = {
             center = {
