@@ -80,7 +80,7 @@
 	<class>Escort Duty</class>
 	<name>Ostentation</name>
     <unlock>Get to Sector 8 with Escort Duty Type A to unlock this ship.</unlock>
-	<desc>The Ministry's confidence in its energy shield tech has left these ships with a major weakness - while able to support a shield system that can encompass both vessels, it cannot be upgraded beyond its first bubble.</desc>
+	<desc>The Ministry's confidence in its energy shield tech has left these ships with a notable weakness - while able to support a shield system that can encompass both vessels, it cannot be upgraded beyond its first bubble.</desc>
 	<systemList>
 		<battery max="2" power="1" room="6" start="false" img="room_battery" />
 		<cloaking power="1" room="5" start="false" img="room_cloaking_3" />
@@ -96,7 +96,7 @@
 			</slot>
 		</doors>
 		<drones max="8" power="2" room="9" start="true" img="room_drones_8" />
-		<engines power="1" room="0" start="true" img="room_engines_2">
+		<engines power="2" room="0" start="true" img="room_engines_2">
 			<slot>
 				<direction>down</direction>
 				<number>2</number>
@@ -152,6 +152,7 @@
     <crewCount amount="1" class="zoltan_monk" />
     <crewCount amount="1" class="zoltan_peacekeeper" />
     <crewCount amount="1" class="zoltan_monk" />
+    <aug name="ENERGY_SHIELD_LIMIT" />
     <aug name="ADV_SCANNERS" />
     <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
 </shipBlueprint>
@@ -311,6 +312,16 @@
     <weaponArt>bomblauncher_cluster_fire</weaponArt>
     <iconImage>bomb</iconImage>
 </weaponBlueprint>
+
+<augBlueprint name="ENERGY_SHIELD_LIMIT">
+	<title>Multifacet Energy Shield</title>
+	<desc>This energy shield is specially tuned to encompass both your ships. It provides 4 layers, but this cannot be exceeded even with upgrades or other augments which provide energy shields. Additionally, systems powered by crew members have a proportinal chance to resist hull and system damage.</desc>
+	<cost>80</cost>
+	<bp>8</bp>
+	<rarity>0</rarity>
+	<stackable>false</stackable>
+	<value>2</value>
+</augBlueprint>
 
 <augBlueprint name="SYNTHESIZED_ARMOR">
     <title>Synthesized Armor</title>

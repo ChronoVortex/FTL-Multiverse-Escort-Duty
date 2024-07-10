@@ -234,6 +234,15 @@ script.on_game_event("LUA_ESCORT_TELEPORT", false, function()
     end
 end)
 
+---------------------------
+-- LIMITED ENERGY SHIELD --
+---------------------------
+script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
+    if ship:HasEquipment("ENERGY_SHIELD_LIMIT") > 0 and ship.shieldSystem.shields.power.super.first > 4 then
+        ship.shieldSystem.shields.power.super.first = 4
+    end
+end)
+
 -------------------------
 -- FIRE BOMB ARTILLERY --
 -------------------------

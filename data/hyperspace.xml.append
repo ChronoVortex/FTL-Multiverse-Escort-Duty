@@ -111,6 +111,14 @@
 </mod:findLike>
 
 <mod:findLike type="augments" limit="1">
+	<mod-append:aug name="ENERGY_SHIELD_LIMIT">
+        <superShield>
+            <value>4</value>
+            <color r="0" g="255" b="6" a="0.8"/>
+            <shieldImage>ship/shield_base_bubble.png</shieldImage>
+        </superShield>
+		<locked/>
+    </mod-append:aug>
     <mod-append:aug name="SYNTHESIZED_ARMOR">
 		<statBoosts>
 			<statBoost name="sabotageSpeedMultiplier">
@@ -126,6 +134,12 @@
         <function name="SLUG_GEL" value="0.25" useForReqs="false"/>
         <locked/>
     </mod-append:aug>
+</mod:findLike>
+
+<mod:findLike type="events">
+    <mod:findName type="req" name="LIST_CHECK_ENERGY_SHIELD">
+        <mod-append:name>ENERGY_SHIELD_LIMIT</mod-append:name>
+    </mod:findName>
 </mod:findLike>
 
 <mod:findLike type="events" limit="1">
