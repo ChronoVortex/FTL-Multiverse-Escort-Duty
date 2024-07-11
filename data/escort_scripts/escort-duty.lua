@@ -234,14 +234,41 @@ script.on_game_event("LUA_ESCORT_TELEPORT", false, function()
     end
 end)
 
----------------------------
--- LIMITED ENERGY SHIELD --
----------------------------
+------------------------
+-- MULTIFACET SHIELDS --
+------------------------
 script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
-    if ship:HasEquipment("ENERGY_SHIELD_LIMIT") > 0 and ship.shieldSystem.shields.power.super.first > 4 then
-        ship.shieldSystem.shields.power.super.first = 4
+    if ship:HasEquipment("ENERGY_SHIELD_MULTIFACET") > 0 then
+        ship.shieldSystem.shields.power.super.first = math.min(4, ship.shieldSystem.shields.power.super.first)
+        for room in vter(Hyperspace.ShipGraph.GetShipInfo(ship.iShipId).rooms) do
+            local system = ship:GetSystemInRoom(room.iRoomId)
+            if system then
+                local resistChance = 6*system.iBonusPower
+                room.extend.sysDamageResistChance = resistChance
+                room.extend.ionDamageResistChance = resistChance
+            end
+        end
     end
 end)
+do
+    local resistIcon = Hyperspace.Resources:CreateImagePrimitiveString("effects/resist_ico.png", 0, 0, 0, Graphics.GL_Color(1, 1, 0, 1), 1, false)
+    script.on_render_event(Defines.RenderEvents.SHIP_SPARKS, function() end, function(ship)
+        if ship:HasEquipment("ENERGY_SHIELD_MULTIFACET") > 0 then
+            ship = Hyperspace.ships(ship.iShipId)
+            local shipGraph = Hyperspace.ShipGraph.GetShipInfo(ship.iShipId)
+            for room in vter(shipGraph.rooms) do
+                local system = ship:GetSystemInRoom(room.iRoomId)
+                if system and system.iBonusPower > 0 then
+                    local shape = shipGraph:GetRoomShape(room.iRoomId)
+                    Graphics.CSurface.GL_PushMatrix()
+                    Graphics.CSurface.GL_Translate(shape.x, shape.y)
+                    Graphics.CSurface.GL_RenderPrimitive(resistIcon)
+                    Graphics.CSurface.GL_PopMatrix()
+                end
+            end
+        end
+    end)
+end
 
 -------------------------
 -- FIRE BOMB ARTILLERY --

@@ -122,7 +122,7 @@
 				<number>1</number>
 			</slot>
 		</sensors>
-		<shields max="8" power="1" room="4" start="true" img="room_escort_b_shields">
+		<shields max="2" power="1" room="4" start="true" img="room_escort_b_shields">
 			<slot>
 				<direction>right</direction>
 				<number>1</number>
@@ -152,7 +152,7 @@
     <crewCount amount="1" class="zoltan_monk" />
     <crewCount amount="1" class="zoltan_peacekeeper" />
     <crewCount amount="1" class="zoltan_monk" />
-    <aug name="ENERGY_SHIELD_LIMIT" />
+    <aug name="ENERGY_SHIELD_MULTIFACET" />
     <aug name="ADV_SCANNERS" />
     <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
 </shipBlueprint>
@@ -313,9 +313,9 @@
     <iconImage>bomb</iconImage>
 </weaponBlueprint>
 
-<augBlueprint name="ENERGY_SHIELD_LIMIT">
+<augBlueprint name="ENERGY_SHIELD_MULTIFACET">
 	<title>Multifacet Energy Shield</title>
-	<desc>This energy shield is specially tuned to encompass both your ships. It provides 4 layers, but this cannot be exceeded even with upgrades or other augments which provide energy shields. Additionally, systems powered by crew members have a proportinal chance to resist hull and system damage.</desc>
+	<desc>This energy shield is specially tuned to encompass both your ships. It provides 4 layers, but this cannot be exceeded even with upgrades or other augments which provide energy shields. Additionally, systems have a 6% chance to resist system and ion damage for each bonus power provided by crew.</desc>
 	<cost>80</cost>
 	<bp>8</bp>
 	<rarity>0</rarity>
