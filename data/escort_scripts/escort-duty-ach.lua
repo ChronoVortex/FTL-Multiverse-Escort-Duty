@@ -61,10 +61,16 @@ end)
 
 -- Normal
 script.on_internal_event(Defines.InternalEvents.JUMP_ARRIVE, function(ship)
-    local event = Hyperspace.App.world.starMap.currentLoc.event
-    if should_track_achievement("ACH_SHIP_ESCORT_DUTY_2", ship, "PLAYER_SHIP_ESCORT_DUTY") and event and event.environment == 1 then
+    Hyperspace.playerVariables.loc_escort_asteroid_this_beacon = 0
+end)
+script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
+    local asteroidsStarted = should_track_achievement("ACH_SHIP_ESCORT_DUTY_2", ship, "PLAYER_SHIP_ESCORT_DUTY") and
+                             Hyperspace.App.world.space.asteroidGenerator.bRunning and
+                             Hyperspace.playerVariables.loc_escort_asteroid_this_beacon == 0
+    if asteroidsStarted then
+        Hyperspace.playerVariables.loc_escort_asteroid_this_beacon = 1
         Hyperspace.playerVariables.loc_escort_asteroid_visits = Hyperspace.playerVariables.loc_escort_asteroid_visits + 1
-        if Hyperspace.playerVariables.loc_escort_asteroid_visits >= 4 then
+        if Hyperspace.playerVariables.loc_escort_asteroid_visits >= 5 then
             Hyperspace.CustomAchievementTracker.instance:SetAchievement("ACH_SHIP_ESCORT_DUTY_2", false)
         end
     end
