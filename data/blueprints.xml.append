@@ -315,7 +315,7 @@
 
 <augBlueprint name="ENERGY_SHIELD_MULTIFACET">
 	<title>Multifacet Energy Shield</title>
-	<desc>This energy shield is specially tuned to encompass both your ships. It provides 4 layers, but this cannot be exceeded even with upgrades or other augments which provide energy shields. Additionally, systems have a 6% chance to resist system and ion damage for each bonus power provided by crew.</desc>
+	<desc>This energy shield is specially tuned to encompass both your ships. It provides 4 layers, but this cannot be exceeded even with upgrades or other augments which provide energy shields. Additionally, systems have a 6% chance to resist hull, system and ion damage for each bonus power provided by crew.</desc>
 	<cost>80</cost>
 	<bp>8</bp>
 	<rarity>0</rarity>

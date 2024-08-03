@@ -240,12 +240,21 @@ end)
 script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
     if ship:HasEquipment("ENERGY_SHIELD_MULTIFACET") > 0 then
         ship.shieldSystem.shields.power.super.first = math.min(4, ship.shieldSystem.shields.power.super.first)
+        local roomDefs = Hyperspace.CustomShipSelect.GetInstance():GetDefinition(ship.myBlueprint.blueprintName).roomDefs
         for room in vter(Hyperspace.ShipGraph.GetShipInfo(ship.iShipId).rooms) do
             local system = ship:GetSystemInRoom(room.iRoomId)
             if system then
                 local resistChance = 6*system.iBonusPower
-                room.extend.sysDamageResistChance = resistChance
-                room.extend.ionDamageResistChance = resistChance
+                if roomDefs:has_key(room.iRoomId) then
+                    local roomDef = roomDefs[room.iRoomId]
+                    room.extend.hullDamageResistChance = math.max(roomDef.hullDamageResistChance, resistChance)
+                    room.extend.sysDamageResistChance = math.max(roomDef.sysDamageResistChance, resistChance)
+                    room.extend.ionDamageResistChance = math.max(roomDef.ionDamageResistChance, resistChance)
+                else
+                    room.extend.hullDamageResistChance = resistChance
+                    room.extend.sysDamageResistChance = resistChance
+                    room.extend.ionDamageResistChance = resistChance
+                end
             end
         end
     end
