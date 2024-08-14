@@ -89,7 +89,7 @@
 				<number>0</number>
 			</slot>
 		</clonebay>
-		<doors power="1" room="15" start="true" img="room_doors_9">
+		<doors power="1" room="8" start="true" img="room_doors_9">
 			<slot>
 				<direction>right</direction>
 				<number>1</number>
@@ -116,7 +116,7 @@
 				<number>1</number>
 			</slot>
 		</pilot>
-		<sensors power="1" room="8" start="true" img="room_sensors_3">
+		<sensors power="1" room="15" start="true" img="room_sensors_3">
 			<slot>
 				<direction>right</direction>
 				<number>1</number>
