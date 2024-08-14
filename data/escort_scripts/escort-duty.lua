@@ -77,6 +77,22 @@ local escortDutyShips = {
             }
         }
     },
+    PLAYER_SHIP_ESCORT_DUTY_2 = {
+        tpLinkages = {
+            -- Coordinates of the individual TP pads on the escort fighter
+            tpRoomShip1 = 14,
+            tpPadsShip1 = {
+                { x = 350, y = 210, slot = 0 },
+                { x = 385, y = 210, slot = 1 }
+            },
+            -- Coordinates of the individual TP pads on the freighter
+            tpRoomShip2 = 6,
+            tpPadsShip2 = {
+                { x = 210, y = 105, slot = 0 },
+                { x = 245, y = 105, slot = 1 },
+            }
+        }
+    },
     PLAYER_SHIP_ESCORT_DUTY_3 = {
         droneOrbitEllipse = {
             center = {
@@ -217,6 +233,51 @@ script.on_game_event("LUA_ESCORT_TELEPORT", false, function()
         end
     end
 end)
+
+------------------------
+-- MULTIFACET SHIELDS --
+------------------------
+script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
+    if ship:HasEquipment("ENERGY_SHIELD_MULTIFACET") > 0 then
+        ship.shieldSystem.shields.power.super.first = math.min(4, ship.shieldSystem.shields.power.super.first)
+        local roomDefs = Hyperspace.CustomShipSelect.GetInstance():GetDefinition(ship.myBlueprint.blueprintName).roomDefs
+        for room in vter(Hyperspace.ShipGraph.GetShipInfo(ship.iShipId).rooms) do
+            local system = ship:GetSystemInRoom(room.iRoomId)
+            if system then
+                local resistChance = 6*system.iBonusPower
+                if roomDefs:has_key(room.iRoomId) then
+                    local roomDef = roomDefs[room.iRoomId]
+                    room.extend.hullDamageResistChance = math.max(roomDef.hullDamageResistChance, resistChance)
+                    room.extend.sysDamageResistChance = math.max(roomDef.sysDamageResistChance, resistChance)
+                    room.extend.ionDamageResistChance = math.max(roomDef.ionDamageResistChance, resistChance)
+                else
+                    room.extend.hullDamageResistChance = resistChance
+                    room.extend.sysDamageResistChance = resistChance
+                    room.extend.ionDamageResistChance = resistChance
+                end
+            end
+        end
+    end
+end)
+do
+    local resistIcon = Hyperspace.Resources:CreateImagePrimitiveString("effects/resist_ico.png", 0, 0, 0, Graphics.GL_Color(1, 0.98, 0.353, 1), 1, false)
+    script.on_render_event(Defines.RenderEvents.SHIP_SPARKS, function() end, function(ship)
+        if ship:HasEquipment("ENERGY_SHIELD_MULTIFACET") > 0 then
+            ship = Hyperspace.ships(ship.iShipId)
+            local shipGraph = Hyperspace.ShipGraph.GetShipInfo(ship.iShipId)
+            for room in vter(shipGraph.rooms) do
+                local system = ship:GetSystemInRoom(room.iRoomId)
+                if system and system.iBonusPower > 0 then
+                    local shape = shipGraph:GetRoomShape(room.iRoomId)
+                    Graphics.CSurface.GL_PushMatrix()
+                    Graphics.CSurface.GL_Translate(shape.x, shape.y)
+                    Graphics.CSurface.GL_RenderPrimitive(resistIcon)
+                    Graphics.CSurface.GL_PopMatrix()
+                end
+            end
+        end
+    end)
+end
 
 -------------------------
 -- FIRE BOMB ARTILLERY --

@@ -9,7 +9,12 @@
 </mod:findLike>
 
 <mod:findLike type="ships" limit="1">
-	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="false" c="true">
+	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="true" c="true">
+        <unlock variant="b" silent="false">
+            <type>1</type>
+            <shipReq>PLAYER_SHIP_ESCORT_DUTY</shipReq>
+            <value>8</value>
+        </unlock>
         <unlock variant="c" silent="false">
             <type>4</type>
         </unlock>
@@ -48,6 +53,22 @@
             <room id="6">
                 <roomAnim renderLayer="2">telepad_ico</roomAnim>
                 <roomAnim renderLayer="1">telepad_on_escort_2</roomAnim>
+            </room>
+        </rooms>
+	</mod-append:customShip>
+	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_2">
+		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
+        <rooms>
+            <room id="3">
+                <roomAnim renderLayer="1">escort_b_decor_1</roomAnim>
+            </room>
+            <room id="6">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+            <room id="14">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
             </room>
         </rooms>
 	</mod-append:customShip>
@@ -90,6 +111,14 @@
 </mod:findLike>
 
 <mod:findLike type="augments" limit="1">
+	<mod-append:aug name="ENERGY_SHIELD_MULTIFACET">
+        <superShield>
+            <value>4</value>
+            <color r="0" g="255" b="6" a="0.8"/>
+            <shieldImage>ship/shield_base_bubble.png</shieldImage>
+        </superShield>
+		<locked/>
+    </mod-append:aug>
     <mod-append:aug name="SYNTHESIZED_ARMOR">
 		<statBoosts>
 			<statBoost name="sabotageSpeedMultiplier">
@@ -105,6 +134,12 @@
         <function name="SLUG_GEL" value="0.25" useForReqs="false"/>
         <locked/>
     </mod-append:aug>
+</mod:findLike>
+
+<mod:findLike type="events">
+    <mod:findName type="req" name="LIST_CHECK_ENERGY_SHIELD">
+        <mod-append:name>ENERGY_SHIELD_MULTIFACET</mod-append:name>
+    </mod:findName>
 </mod:findLike>
 
 <mod:findLike type="events" limit="1">
