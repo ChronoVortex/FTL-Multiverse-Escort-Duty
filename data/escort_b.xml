@@ -4,7 +4,7 @@
 <img x="-52" y="-27" w="553" h="405" />
 <offsets>
 	<floor x="46" y="21" />
-	<cloak x="0" y="0" />
+	<cloak x="-8" y="-8" />
 </offsets>
 <weaponMounts />
 <explosion />
