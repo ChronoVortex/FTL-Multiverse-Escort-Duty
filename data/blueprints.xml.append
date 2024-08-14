@@ -154,7 +154,7 @@
     <crewCount amount="1" class="zoltan_monk" />
     <aug name="ENERGY_SHIELD_MULTIFACET" />
     <aug name="ADV_SCANNERS" />
-    <mv-mapImage offset="-44">map_icon_escort_duty</mv-mapImage>
+    <mv-mapImage offset="-44">map_icon_escort_duty_b</mv-mapImage>
 </shipBlueprint>
 
 <shipBlueprint name="PLAYER_SHIP_ESCORT_DUTY_3" layout="escort_c" img="escort_c">
