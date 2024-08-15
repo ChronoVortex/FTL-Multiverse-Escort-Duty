@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<img x="-31" y="-9" w="468" h="492" />
+<offsets>
+	<floor x="25" y="3" />
+	<cloak x="-8" y="-8" />
+</offsets>
+<weaponMounts>
+	<mount x="410" y="211" rotate="true" mirror="true" gib="1" slide="right" />
+	<mount x="410" y="262" rotate="true" mirror="false" gib="1" slide="right" />
+	<mount x="210" y="73" rotate="true" mirror="true" gib="8" slide="right" />
+	<mount x="210" y="121" rotate="true" mirror="false" gib="8" slide="right" />
+	<mount x="192" y="403" rotate="true" mirror="false" gib="5" slide="right" />
+	<mount x="148" y="474" rotate="true" mirror="false" gib="4" slide="down" />
+</weaponMounts>
+<thrusters sync="true">
+    <thruster x="227" y="184">escort_engine_fighter</thruster>
+    <thruster x="227" y="208">escort_engine_fighter</thruster>
+    <thruster x="227" y="252">escort_engine_fighter</thruster>
+    <thruster x="227" y="276">escort_engine_fighter</thruster>
+    <thruster x="44" y="89">escort_c_engine_fighter</thruster>
+</thrusters>
+<explosion>
+	<gib1>
+		<velocity min="0.42" max="0.92" />
+		<direction min="216" max="265" />
+		<angular min="-0.73" max="0.73" />
+		<x>238</x>
+		<y>195</y>
+	</gib1>
+	<gib2>
+		<velocity min="0.62" max="1.08" />
+		<direction min="1" max="50" />
+		<angular min="-1.41" max="1.41" />
+		<x>238</x>
+		<y>143</y>
+	</gib2>
+	<gib3>
+		<velocity min="0.47" max="0.75" />
+		<direction min="119" max="179" />
+		<angular min="-1.23" max="1.23" />
+		<x>0</x>
+		<y>382</y>
+	</gib3>
+	<gib4>
+		<velocity min="0.28" max="0.57" />
+		<direction min="196" max="239" />
+		<angular min="-0.49" max="0.49" />
+		<x>16</x>
+		<y>300</y>
+	</gib4>
+	<gib5>
+		<velocity min="0.55" max="0.81" />
+		<direction min="258" max="294" />
+		<angular min="-1.70" max="1.70" />
+		<x>81</x>
+		<y>305</y>
+	</gib5>
+	<gib6>
+        <velocity min="0.70" max="0.75" />
+        <direction min="207" max="232" />
+        <angular min="-2.37" max="2.37" />
+		<x>67</x>
+		<y>106</y>
+	</gib6>
+	<gib7>
+        <velocity min="0.42" max="0.67" />
+        <direction min="102" max="149" />
+        <angular min="-1.03" max="1.03" />
+		<x>10</x>
+		<y>111</y>
+	</gib7>
+	<gib8>
+        <velocity min="0.33" max="0.62" />
+        <direction min="257" max="312" />
+        <angular min="-0.95" max="0.95" />
+		<x>48</x>
+		<y>41</y>
+	</gib8>
+	<gib9>
+        <velocity min="0.4" max="0.65" />
+        <direction min="-10" max="30" />
+        <angular min="-1.75" max="1.75" />
+		<x>10</x>
+		<y>0</y>
+	</gib9>
+</explosion>
