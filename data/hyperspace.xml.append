@@ -111,7 +111,7 @@
 	</mod-append:customShip>
 	
     <!-- Elite variant -->
-    <mod-append:ship name="ELITE_SHIP_ESCORT_DUTY" a="true" b="false" c="false">
+    <mod-append:ship name="ELITE_SHIP_ESCORT_DUTY" a="true" b="false" c="false" secret="true">
         <unlock variant="a" silent="false">
             <type>5</type>
             <victories>

@@ -229,7 +229,7 @@
 </shipBlueprint>
 
 <shipBlueprint name="ELITE_SHIP_ESCORT_DUTY" layout="escort_e" img="escort_e">
-	<class>Escort Duty</class>
+	<class>Federation Squadron</class>
 	<name>Vendetta</name>
     <unlock>Beat the game with Escort Duty Type A, B and C to unlock this ship.</unlock>
 	<desc>With their charges now delivered safely to their destinations, these fighters have joined forces to show the Rebellion the might of the Federation.</desc>
