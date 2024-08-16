@@ -260,7 +260,7 @@ script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
     end
 end)
 do
-    local resistIcon = Hyperspace.Resources:CreateImagePrimitiveString("effects/resist_ico.png", 0, 0, 0, Graphics.GL_Color(1, 0.98, 0.353, 1), 1, false)
+    local resistIcon = Hyperspace.Resources:CreateImagePrimitiveString("effects/escort_resist_ico.png", 0, 0, 0, Graphics.GL_Color(1, 0.98, 0.353, 1), 1, false)
     script.on_render_event(Defines.RenderEvents.SHIP_SPARKS, function() end, function(ship)
         if ship:HasEquipment("ENERGY_SHIELD_MULTIFACET") > 0 then
             ship = Hyperspace.ships(ship.iShipId)
