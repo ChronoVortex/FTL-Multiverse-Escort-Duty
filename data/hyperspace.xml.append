@@ -123,6 +123,24 @@
 	</mod-append:ship>
 	<mod-append:customShip name="ELITE_SHIP_ESCORT_DUTY">
 		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
+        <rooms>
+            <room id="11">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_c_1</roomAnim>
+            </room>
+            <room id="3">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+            <room id="5">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+            <room id="16">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+        </rooms>
 	</mod-append:customShip>
     
     <!-- Page setup -->
@@ -176,6 +194,7 @@
 
 <mod:findLike type="events" limit="1">
     <mod-append:variable name="loc_escort_teleport_charged" op="set" val="1"/>
+    <mod-append:variable name="loc_escort_teleport_charged_2" op="set" val="1"/>
     <mod-append:variable name="loc_escort_asteroid_this_beacon" op="set" val="0"/>
     <mod-append:variable name="loc_escort_asteroid_visits" op="set" val="0"/>
     <mod-append:variable name="loc_escort_damage_taken" op="set" val="0"/>
@@ -194,6 +213,7 @@
     </mod:findName>
     <mod:findName type="req" name="ALTERNATE_START">
         <mod-append:name>ESCORT_DUTY_ACTIVE</mod-append:name>
+        <mod-append:name>SHIP ELITE_SHIP_ESCORT_DUTY</mod-append:name>
     </mod:findName>
 </mod:findLike>
 

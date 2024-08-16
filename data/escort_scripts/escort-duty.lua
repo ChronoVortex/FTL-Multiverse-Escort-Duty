@@ -117,6 +117,36 @@ local escortDutyShips = {
                 { x = 140, y = 280, slot = 3 },
             }
         }
+    },
+    ELITE_SHIP_ESCORT_DUTY = {
+        tpLinkages = {
+            -- Coordinates of the individual TP pads on the escort C fighter
+            tpRoomShip1 = 11,
+            tpPadsShip1 = {
+                { x = 35,  y = 105, slot = 0 },
+                { x = 35,  y = 140, slot = 1 }
+            },
+            -- Coordinates of the individual TP pads on the escort A fighter
+            tpRoomShip2 = 3,
+            tpPadsShip2 = {
+                { x = 280, y = 140, slot = 0 },
+                { x = 315, y = 140, slot = 1 },
+            }
+        },
+        tpLinkages2 = {
+            -- Coordinates of the individual TP pads on the escort A fighter
+            tpRoomShip1 = 5,
+            tpPadsShip1 = {
+                { x = 280, y = 280, slot = 0 },
+                { x = 315, y = 280, slot = 1 }
+            },
+            -- Coordinates of the individual TP pads on the escort B fighter
+            tpRoomShip2 = 16,
+            tpPadsShip2 = {
+                { x = 70,  y = 315, slot = 0 },
+                { x = 105, y = 315, slot = 1 },
+            }
+        }
     }
 }
 
@@ -198,17 +228,19 @@ end
 -- SHORT-RANGE TRANSPORTER --
 -----------------------------
 script.on_game_event("INITIAL_START_BEACON_ESCORT_DUTY", false, function() ShowTutorialArrow(1, 918, 561) end)
+script.on_game_event("INITIAL_START_BEACON_ESCORT_DUTY_ELITE", false, function() ShowTutorialArrow(1, 918, 561) end)
+script.on_game_event("INITIAL_START_BEACON_ESCORT_DUTY_ELITE_2", false, HideTutorialArrow)
 script.on_game_event("LIGHTSPEED_DROPPOINT", false, HideTutorialArrow)
 script.on_game_event("START_BEACON_PRESELECT", false, HideTutorialArrow) -- Just in case the tut arrow is active on game start
 
-script.on_game_event("LUA_ESCORT_TELEPORT", false, function()
+local function handle_mini_teleporters(linkageName)
     local ship = Hyperspace.ships.player
     if ship then
         for shipName, escortData in pairs(escortDutyShips) do
             -- Check if ship is an escort duty variant
             if shipName == ship.myBlueprint.blueprintName then
                 local playTpSound = false
-                local links = escortData.tpLinkages
+                local links = escortData[linkageName]
                 for padIndex = 1, #(links.tpPadsShip1), 1 do
                     -- Check for crew on the pad of the first ship and teleport
                     local crewShip1 = get_ship_crew_point(ship,
@@ -232,6 +264,12 @@ script.on_game_event("LUA_ESCORT_TELEPORT", false, function()
             end
         end
     end
+end
+script.on_game_event("LUA_ESCORT_TELEPORT", false, function()
+    handle_mini_teleporters("tpLinkages")
+end)
+script.on_game_event("LUA_ESCORT_TELEPORT_2", false, function()
+    handle_mini_teleporters("tpLinkages2")
 end)
 
 ------------------------
