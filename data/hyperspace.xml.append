@@ -124,6 +124,28 @@
 	<mod-append:customShip name="ELITE_SHIP_ESCORT_DUTY">
 		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
         <rooms>
+            <room id="6">
+                <roomAnim renderLayer="2">escort_mini_piloting</roomAnim>
+            </room>
+            <room id="12">
+                <roomAnim renderLayer="2">escort_mini_piloting</roomAnim>
+            </room>
+            <room id="2">
+                <roomAnim renderLayer="2">escort_mini_engines</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_engines</roomAnim>
+            </room>
+            <room id="4">
+                <roomAnim renderLayer="2">escort_mini_shields</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_shields</roomAnim>
+            </room>
+            <room id="17">
+                <roomAnim renderLayer="2">escort_mini_weapons</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_weapons_2</roomAnim>
+            </room>
+            <room id="10">
+                <roomAnim renderLayer="2">escort_mini_weapons</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_weapons_1</roomAnim>
+            </room>
             <room id="11">
                 <roomAnim renderLayer="2">telepad_ico</roomAnim>
                 <roomAnim renderLayer="1">telepad_on_escort_c_1</roomAnim>

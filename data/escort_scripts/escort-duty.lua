@@ -345,3 +345,32 @@ do
         end
     end)
 end
+
+--------------------
+-- SYSTEM LINKAGE --
+--------------------
+do
+    local sysLinks = {
+        [2] = 6,
+        [4] = 12,
+        [6] = 0,
+        [10] = 1,
+        [12] = 0,
+        [17] = 1
+    }
+    local function handle_sys_link(ship, projectile, location, damage)
+        if ship.myBlueprint.blueprintName == "ELITE_SHIP_ESCORT_DUTY" then
+            local shipGraph = Hyperspace.ShipGraph.GetShipInfo(ship.iShipId)
+            local linkedSystem = sysLinks[shipGraph:GetSelectedRoom(location.x, location.y, true)]
+            if linkedSystem and math.random() > 0.5 then
+                ship:DamageSystem(linkedSystem, damage)
+            end
+        end
+    end
+    script.on_internal_event(Defines.InternalEvents.DAMAGE_AREA_HIT, handle_sys_link)
+    script.on_internal_event(Defines.InternalEvents.DAMAGE_BEAM, function(ship, projectile, location, damage, realNewTile, beamHitType)
+        if beamHitType == Defines.BeamHit.NEW_ROOM then
+            handle_sys_link(ship, projectile, location, damage)
+        end
+    end)
+end
