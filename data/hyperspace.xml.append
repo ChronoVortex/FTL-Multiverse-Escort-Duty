@@ -9,6 +9,7 @@
 </mod:findLike>
 
 <mod:findLike type="ships" limit="1">
+    <!-- Standard variants -->
 	<mod-append:ship name="PLAYER_SHIP_ESCORT_DUTY" a="true" b="true" c="true">
         <unlock variant="b" silent="false">
             <type>1</type>
@@ -108,6 +109,77 @@
             </room>
         </rooms>
 	</mod-append:customShip>
+	
+    <!-- Elite variant -->
+    <mod-append:ship name="ELITE_SHIP_ESCORT_DUTY" a="true" b="false" c="false" secret="true">
+        <unlock variant="a" silent="false">
+            <type>5</type>
+            <victories>
+				<victory>PLAYER_SHIP_ESCORT_DUTY</victory>
+				<victory>PLAYER_SHIP_ESCORT_DUTY_2</victory>
+				<victory>PLAYER_SHIP_ESCORT_DUTY_3</victory>
+            </victories>
+        </unlock>
+	</mod-append:ship>
+	<mod-append:customShip name="ELITE_SHIP_ESCORT_DUTY">
+		<hiddenAug>FOR_MULTIVERSE</hiddenAug>
+        <rooms>
+            <room id="6">
+                <roomAnim renderLayer="2">escort_mini_piloting</roomAnim>
+            </room>
+            <room id="12">
+                <roomAnim renderLayer="2">escort_mini_piloting</roomAnim>
+            </room>
+            <room id="2">
+                <roomAnim renderLayer="2">escort_mini_engines</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_engines</roomAnim>
+            </room>
+            <room id="4">
+                <roomAnim renderLayer="2">escort_mini_shields</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_shields</roomAnim>
+            </room>
+            <room id="17">
+                <roomAnim renderLayer="2">escort_mini_weapons</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_weapons_2</roomAnim>
+            </room>
+            <room id="10">
+                <roomAnim renderLayer="2">escort_mini_weapons</roomAnim>
+                <roomAnim renderLayer="1">escort_e_decor_weapons_1</roomAnim>
+            </room>
+            <room id="11">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_c_1</roomAnim>
+            </room>
+            <room id="3">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+            <room id="5">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+            <room id="16">
+                <roomAnim renderLayer="2">telepad_ico</roomAnim>
+                <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
+            </room>
+        </rooms>
+	</mod-append:customShip>
+    
+    <!-- Page setup -->
+    <mod:findLike type="shipOrder">
+        <mod-append:ship>PLAYER_SHIP_ESCORT_DUTY</mod-append:ship>
+        <mod-append:empty/>
+        <mod-append:empty/>
+        <mod-append:empty/>
+        
+        <mod-append:empty/>
+        <mod-append:empty/>
+        <mod-append:empty/>
+        <mod-append:empty/>
+        
+        <mod-append:ship>ELITE_SHIP_ESCORT_DUTY</mod-append:ship>
+        <mod-append:empty/>
+    </mod:findLike>
 </mod:findLike>
 
 <mod:findLike type="augments" limit="1">
@@ -144,6 +216,7 @@
 
 <mod:findLike type="events" limit="1">
     <mod-append:variable name="loc_escort_teleport_charged" op="set" val="1"/>
+    <mod-append:variable name="loc_escort_teleport_charged_2" op="set" val="1"/>
     <mod-append:variable name="loc_escort_asteroid_this_beacon" op="set" val="0"/>
     <mod-append:variable name="loc_escort_asteroid_visits" op="set" val="0"/>
     <mod-append:variable name="loc_escort_damage_taken" op="set" val="0"/>
@@ -162,6 +235,7 @@
     </mod:findName>
     <mod:findName type="req" name="ALTERNATE_START">
         <mod-append:name>ESCORT_DUTY_ACTIVE</mod-append:name>
+        <mod-append:name>SHIP ELITE_SHIP_ESCORT_DUTY</mod-append:name>
     </mod:findName>
 </mod:findLike>
 

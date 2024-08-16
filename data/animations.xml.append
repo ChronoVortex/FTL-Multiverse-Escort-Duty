@@ -71,6 +71,56 @@
 	<time>1</time>
 </anim>
 
+<animSheet name="escort_mini_engines" w="35" h="35" fw="35" fh="35">ship/interior/escort_mini_engines.png</animSheet>
+<anim name="escort_mini_engines">
+	<sheet>escort_mini_engines</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_mini_piloting" w="35" h="35" fw="35" fh="35">ship/interior/escort_mini_piloting.png</animSheet>
+<anim name="escort_mini_piloting">
+	<sheet>escort_mini_piloting</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_mini_shields" w="35" h="35" fw="35" fh="35">ship/interior/escort_mini_shields.png</animSheet>
+<anim name="escort_mini_shields">
+	<sheet>escort_mini_shields</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_mini_weapons" w="35" h="35" fw="35" fh="35">ship/interior/escort_mini_weapons.png</animSheet>
+<anim name="escort_mini_weapons">
+	<sheet>escort_mini_weapons</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+
+<animSheet name="escort_e_decor_engines" w="70" h="35" fw="70" fh="35">ship/interior/escort_e_decor_engines.png</animSheet>
+<anim name="escort_e_decor_engines">
+	<sheet>escort_e_decor_engines</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_e_decor_shields" w="70" h="35" fw="70" fh="35">ship/interior/escort_e_decor_shields.png</animSheet>
+<anim name="escort_e_decor_shields">
+	<sheet>escort_e_decor_shields</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_e_decor_weapons_1" w="70" h="35" fw="70" fh="35">ship/interior/escort_e_decor_weapons_1.png</animSheet>
+<anim name="escort_e_decor_weapons_1">
+	<sheet>escort_e_decor_weapons_1</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+<animSheet name="escort_e_decor_weapons_2" w="70" h="35" fw="70" fh="35">ship/interior/escort_e_decor_weapons_2.png</animSheet>
+<anim name="escort_e_decor_weapons_2">
+	<sheet>escort_e_decor_weapons_2</sheet>
+	<desc length="1" x="0" y="0"/>
+	<time>1</time>
+</anim>
+
 <animSheet name="escort_engine_fighter" w="64" h="13" fw="16" fh="13">effects/escort_engine_fighter.png</animSheet>
 <anim name="escort_engine_fighter">
     <sheet>escort_engine_fighter</sheet>

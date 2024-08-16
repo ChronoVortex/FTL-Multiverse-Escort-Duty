@@ -48,6 +48,10 @@
         <text>Proceed with your mission.</text>
         <event load="INITIAL_START_BEACON_ESCORT_DUTY"/>
     </mod-append:choice>
+    <mod-append:choice hidden="true" req="SHIP ELITE_SHIP_ESCORT_DUTY" blue="false">
+        <text>Proceed with your mission.</text>
+        <event load="INITIAL_START_BEACON_ESCORT_DUTY_ELITE"/>
+    </mod-append:choice>
 </mod:findName>
 
 <event name="INITIAL_START_BEACON_ESCORT_DUTY">
@@ -66,10 +70,45 @@
         <jumpClear>false</jumpClear>
     </eventButton>
 </event>
+
+<event name="INITIAL_START_BEACON_ESCORT_DUTY_ELITE">
+    <text>Your ships are equipped with two pairs of short-range transporters. When activated, crew on the pads will be teleported to the corresponding pads on the other ship. They cannot be damaged, but require 5 seconds to recharge after being used.</text>
+    <remove name="SHARED_SYSTEMS"/>
+    <choice hidden="true">
+        <text>Continue...</text>
+        <event load="LIGHTSPEED_DROPPOINT"/>
+    </choice>
+    <eventButton name="UI_ESCORT_TELEPORT">
+        <event load="LUA_ESCORT_TELEPORT"/>
+        <image>statusUI/escort_tp</image>
+        <customLocation x="942" y="663"/>
+        <tooltip>Activate the port short-range transporter.</tooltip>
+        <inactiveTooltip>Port short-range transporter not charged.</inactiveTooltip>
+        <req>loc_escort_teleport_charged</req>
+        <jumpClear>false</jumpClear>
+    </eventButton>
+    <eventButton name="UI_ESCORT_TELEPORT">
+        <event load="LUA_ESCORT_TELEPORT_2"/>
+        <image>statusUI/escort_tp</image>
+        <customLocation x="979" y="663"/>
+        <tooltip>Activate the starboard short-range transporter.</tooltip>
+        <inactiveTooltip>Starboard short-range transporter not charged.</inactiveTooltip>
+        <req>loc_escort_teleport_charged_2</req>
+        <jumpClear>false</jumpClear>
+    </eventButton>
+</event>
+
 <event name="LUA_ESCORT_TELEPORT">
     <triggeredEvent event="ESCORT_TELEPORT_RECHARGE" minTime="5.0" maxTime="5.0"/>
     <variable name="loc_escort_teleport_charged" op="set" val="0"/>
 </event>
 <event name="ESCORT_TELEPORT_RECHARGE">
     <variable name="loc_escort_teleport_charged" op="set" val="1"/>
+</event>
+<event name="LUA_ESCORT_TELEPORT_2">
+    <triggeredEvent event="ESCORT_TELEPORT_RECHARGE_2" minTime="5.0" maxTime="5.0"/>
+    <variable name="loc_escort_teleport_charged_2" op="set" val="0"/>
+</event>
+<event name="ESCORT_TELEPORT_RECHARGE_2">
+    <variable name="loc_escort_teleport_charged_2" op="set" val="1"/>
 </event>

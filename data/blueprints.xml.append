@@ -228,6 +228,82 @@
     <mv-mapImage offset="-44">map_icon_escort_duty_c</mv-mapImage>
 </shipBlueprint>
 
+<shipBlueprint name="ELITE_SHIP_ESCORT_DUTY" layout="escort_e" img="escort_e">
+	<class>Federation Squadron</class>
+	<name>Vendetta</name>
+    <unlock>Beat the game with Escort Duty Type A, B and C to unlock this ship.</unlock>
+	<desc>With their charges now delivered safely to their destinations, these fighters have joined forces to show the Rebellion the might of the Federation.</desc>
+	<systemList>
+		<battery max="2" power="1" room="2" start="false" img="room_battery_2" />
+		<cloaking power="1" room="7" start="true" img="room_cloaking_13" />
+		<clonebay power="1" room="15" start="false">
+			<slot>
+				<number>0</number>
+			</slot>
+		</clonebay>
+		<doors power="1" room="4" start="true" img="room_escort_e_doors">
+			<slot>
+				<direction>left</direction>
+				<number>0</number>
+			</slot>
+		</doors>
+		<engines power="2" room="6" start="true" img="room_escort_c_engines">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</engines>
+		<hacking power="1" room="10" start="false" img="room_hacking_2" />
+		<medbay power="1" room="15" start="true" img="room_escort_e_medbay">
+			<slot>
+				<number>-2</number>
+			</slot>
+		</medbay>
+		<mind power="1" room="17" start="false" img="room_mind_7" />
+		<oxygen power="1" room="9" start="true" img="room_oxygen_8" />
+		<pilot power="1" room="0" start="true" img="room_pilot_2">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</pilot>
+		<sensors power="1" room="13" start="true" img="room_sensors">
+			<slot>
+				<direction>down</direction>
+				<number>1</number>
+			</slot>
+		</sensors>
+		<shields max="8" power="2" room="12" start="true" img="room_escort_e_shields">
+			<slot>
+				<direction>right</direction>
+				<number>1</number>
+			</slot>
+		</shields>
+		<teleporter power="1" room="14" start="false" />
+		<weapons max="10" power="2" room="1" start="true" img="room_escort_weapons">
+			<slot>
+				<direction>up</direction>
+				<number>1</number>
+			</slot>
+		</weapons>
+	</systemList>
+	<weaponSlots>6</weaponSlots>
+	<droneSlots>0</droneSlots>
+	<weaponList missiles="10" count="6">
+        <weapon name="LASER_BURST_2" />
+        <weapon name="FOCUS_1" />
+    </weaponList>
+	<droneList drones="0" count="0" />
+	<health amount="30" />
+	<maxPower amount="6" />
+    <crewCount amount="1" class="human" />
+    <crewCount amount="1" class="human_soldier" />
+    <crewCount amount="1" class="human" />
+    <crewCount amount="1" class="zoltan_peacekeeper" />
+    <aug name="SHARED_SYSTEMS" />
+    <mv-mapImage offset="-33">map_icon_escort_duty_e</mv-mapImage>
+</shipBlueprint>
+
 <weaponBlueprint name="ION_TRI_PLAYER">
     <type>BURST</type>
     <drone_targetable>0</drone_targetable>
@@ -327,6 +403,17 @@
     <title>Synthesized Armor</title>
     <desc>Combination of Titanium System Casing and Regenerative Plating. Provides a 15% chance to resist system damage, a 10% chance to resist hull damage and patches breaches automatically. Enemy boarders sabotage your systems at 40% speed. Provides an opportunity to ram the enemy ship before combat.</desc>
     <cost>80</cost>
+    <bp>15</bp>
+    <rarity>0</rarity>
+    <stackable>true</stackable>
+</augBlueprint>
+
+<augBlueprint name="SHARED_SYSTEMS">
+    <title>Shared Systems</title>
+    <desc>Rooms with a miniature icon for a system in the top-left corner have a 50% chance to take system and ion damage for that system when hit.
+
+NOTE: This augment is informational only. It will be removed at the start of a run, but its effects will persist.</desc>
+    <cost>0</cost>
     <bp>15</bp>
     <rarity>0</rarity>
     <stackable>true</stackable>
