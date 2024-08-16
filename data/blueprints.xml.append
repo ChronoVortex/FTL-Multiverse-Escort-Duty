@@ -300,6 +300,7 @@
     <crewCount amount="1" class="human_soldier" />
     <crewCount amount="1" class="human" />
     <crewCount amount="1" class="zoltan_peacekeeper" />
+    <mv-mapImage offset="-33">map_icon_escort_duty_e</mv-mapImage>
 </shipBlueprint>
 
 <weaponBlueprint name="ION_TRI_PLAYER">
