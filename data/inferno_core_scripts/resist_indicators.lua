@@ -1,0 +1,1 @@
+-- Clobber inf-core's resist indicator drawing 'cause it screws with the icons for multifacet shields
