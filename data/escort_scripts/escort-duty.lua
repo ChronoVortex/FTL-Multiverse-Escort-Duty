@@ -361,7 +361,7 @@ do
         if ship.myBlueprint.blueprintName == "ELITE_SHIP_ESCORT_DUTY" then
             local shipGraph = Hyperspace.ShipGraph.GetShipInfo(ship.iShipId)
             local linkedSystem = sysLinks[shipGraph:GetSelectedRoom(location.x, location.y, true)]
-            if linkedSystem and math.random() > 0.5 then
+            if linkedSystem and math.random() >= 0.5 then
                 ship:DamageSystem(linkedSystem, damage)
             end
         end
