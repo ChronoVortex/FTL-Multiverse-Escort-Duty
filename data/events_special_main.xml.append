@@ -73,9 +73,10 @@
 
 <event name="INITIAL_START_BEACON_ESCORT_DUTY_ELITE">
     <text>Your ships are equipped with two pairs of short-range transporters. When activated, crew on the pads will be teleported to the corresponding pads on the other ship. They cannot be damaged, but require 5 seconds to recharge after being used.</text>
+    <remove name="SHARED_SYSTEMS"/>
     <choice hidden="true">
         <text>Continue...</text>
-        <event load="INITIAL_START_BEACON_ESCORT_DUTY_ELITE_2"/>
+        <event load="LIGHTSPEED_DROPPOINT"/>
     </choice>
     <eventButton name="UI_ESCORT_TELEPORT">
         <event load="LUA_ESCORT_TELEPORT"/>
@@ -95,13 +96,6 @@
         <req>loc_escort_teleport_charged_2</req>
         <jumpClear>false</jumpClear>
     </eventButton>
-</event>
-<event name="INITIAL_START_BEACON_ESCORT_DUTY_ELITE_2">
-    <text>Your ships also share systems. Rooms with a miniature icon for a system in the top-left corner have a 50% chance to take system and ion damage for that system when hit.</text>
-    <choice hidden="true">
-        <text>Continue...</text>
-        <event load="LIGHTSPEED_DROPPOINT"/>
-    </choice>
 </event>
 
 <event name="LUA_ESCORT_TELEPORT">
