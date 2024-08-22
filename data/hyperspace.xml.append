@@ -27,13 +27,13 @@
         </achievement>
         <achievement name="ACH_SHIP_ESCORT_DUTY_2" layout="all">
             <name>Never Tell Me the Odds!</name>
-            <description>Visit 5 asteroid fields during one run while using Escort Duty.</description>
+            <description>Visit 4 asteroid fields during one run while using Escort Duty.</description>
             <icon>escort_ach_2</icon>
             <lockImage>escort_ach_2_lock</lockImage>
         </achievement>
         <achievement name="ACH_SHIP_ESCORT_DUTY_3" layout="all">
             <name>Vigilant Protector</name>
-            <description>Reach sector 5 without taking more than 5 hull damage while using Escort Duty.</description>
+            <description>Reach sector 5 without taking more than 8 hull damage while using Escort Duty.</description>
             <icon>escort_ach_3</icon>
             <lockImage>escort_ach_3_lock</lockImage>
         </achievement>

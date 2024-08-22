@@ -70,7 +70,7 @@ script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
     if asteroidsStarted then
         Hyperspace.playerVariables.loc_escort_asteroid_this_beacon = 1
         Hyperspace.playerVariables.loc_escort_asteroid_visits = Hyperspace.playerVariables.loc_escort_asteroid_visits + 1
-        if Hyperspace.playerVariables.loc_escort_asteroid_visits >= 5 then
+        if Hyperspace.playerVariables.loc_escort_asteroid_visits >= 4 then
             Hyperspace.CustomAchievementTracker.instance:SetAchievement("ACH_SHIP_ESCORT_DUTY_2", false)
         end
     end
@@ -78,7 +78,7 @@ end)
 
 -- Hard
 script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
-    if ship.iShipId == 0 and Hyperspace.playerVariables.loc_escort_damage_taken <= 5 and should_track_achievement("ACH_SHIP_ESCORT_DUTY_3", ship, "PLAYER_SHIP_ESCORT_DUTY") then
+    if ship.iShipId == 0 and Hyperspace.playerVariables.loc_escort_damage_taken <= 8 and should_track_achievement("ACH_SHIP_ESCORT_DUTY_3", ship, "PLAYER_SHIP_ESCORT_DUTY") then
         local hullChange = userdata_table(ship, "mods.escort.achTracking").hullChange
         if hullChange < 0 then
             Hyperspace.playerVariables.loc_escort_damage_taken = Hyperspace.playerVariables.loc_escort_damage_taken - hullChange
