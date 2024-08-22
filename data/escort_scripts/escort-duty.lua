@@ -8,9 +8,29 @@ end
 local vter = mods.multiverse.vter
 local userdata_table = mods.multiverse.userdata_table
 local time_increment = mods.multiverse.time_increment
-local get_ship_crew_point = mods.vertexutil.get_ship_crew_point
 local ShowTutorialArrow = mods.vertexutil.ShowTutorialArrow
 local HideTutorialArrow = mods.vertexutil.HideTutorialArrow
+
+-- Check if a given crew member belongs to a given ship, factor in mind control
+local function ship_owns_crew(shipId, crew)
+    return (crew.iShipId == shipId) ~= crew.bMindControlled
+end
+
+-- Get all the crew members in a given tile
+local function get_ship_crew_point(ship, x, y, maxCount)
+    local res = {}
+    x = x//35
+    y = y//35
+    for crew in vter(ship.vCrewList) do
+        if ship_owns_crew(ship.iShipId, crew) and x == crew.x//35 and y == crew.y//35 then
+            table.insert(res, crew)
+            if maxCount and #res >= maxCount then
+                return res
+            end
+        end
+    end
+    return res
+end
 
 -- Shuffle the elements of an ordered unbroken table
 local function shuffle_table(t)
@@ -162,8 +182,9 @@ do
         return (ellipse.a*angleCos)/denom, (ellipse.b*angleSin)/denom
     end
 
-    script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
-        if ship.iShipId == 0 then
+    script.on_internal_event(Defines.InternalEvents.ON_TICK, function()
+        local ship = Hyperspace.ships.player
+        if ship then
             for shipName, escortData in pairs(escortDutyShips) do
                 -- Check if ship is an escort duty variant
                 if shipName == ship.myBlueprint.blueprintName then
@@ -190,7 +211,7 @@ do
                             end
                             
                             -- Make the drone orbit the fake ellipse
-                            if drone.powered then
+                            if drone.powered and not check_paused() then
                                 local lookAhead = drone.blueprint.speed*Hyperspace.FPS.SpeedFactor/escortData.droneSpeedFactor
                                 xOffset, yOffset = calculate_coord_offset(escortData.droneOrbitEllipse, math.atan(
                                     drone.currentLocation.y - escortData.droneOrbitEllipse.center.y,
