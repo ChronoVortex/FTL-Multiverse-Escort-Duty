@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<version>^1.13.0</version>
+<version>^1.14.0</version>
 
 <mod:findLike type="discord" limit="1">
     <mod:findLike type="miniships">
@@ -55,6 +55,38 @@
                 <roomAnim renderLayer="2">telepad_ico</roomAnim>
                 <roomAnim renderLayer="1">telepad_on_escort_2</roomAnim>
             </room>
+            <partition>
+                <rooms>
+                    <room id="0"/>
+                    <room id="1"/>
+                    <room id="2"/>
+                    <room id="3"/>
+                    <room id="4"/>
+                    <room id="5"/>
+                </rooms>
+                <backups>
+                    <room id="6">
+                        <slot id="0"/>
+                        <slot id="1"/>
+                    </room>
+                </backups>
+            </partition>
+            <partition>
+                <rooms>
+                    <room id="6"/>
+                    <room id="7"/>
+                    <room id="8"/>
+                    <room id="9"/>
+                    <room id="10"/>
+                    <room id="11"/>
+                    <room id="12"/>
+                    <room id="13"/>
+                    <room id="14"/>
+                </rooms>
+                <backups>
+                    <room id="5"/>
+                </backups>
+            </partition>
         </rooms>
 	</mod-append:customShip>
 	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_2">
@@ -71,6 +103,36 @@
                 <roomAnim renderLayer="2">telepad_ico</roomAnim>
                 <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
             </room>
+            <partition>
+                <rooms>
+                    <room id="0"/>
+                    <room id="1"/>
+                    <room id="2"/>
+                    <room id="3"/>
+                    <room id="4"/>
+                    <room id="5"/>
+                    <room id="6"/>
+                    <room id="7"/>
+                    <room id="8"/>
+                    <room id="9"/>
+                </rooms>
+                <backups>
+                    <room id="14"/>
+                </backups>
+            </partition>
+            <partition>
+                <rooms>
+                    <room id="10"/>
+                    <room id="11"/>
+                    <room id="12"/>
+                    <room id="13"/>
+                    <room id="14"/>
+                    <room id="15"/>
+                </rooms>
+                <backups>
+                    <room id="6"/>
+                </backups>
+            </partition>
         </rooms>
 	</mod-append:customShip>
 	<mod-append:customShip name="PLAYER_SHIP_ESCORT_DUTY_3">
@@ -107,6 +169,38 @@
                 <roomAnim renderLayer="2">telepad_ico</roomAnim>
                 <roomAnim renderLayer="1">telepad_on_escort_c_2</roomAnim>
             </room>
+            <partition>
+                <rooms>
+                    <room id="0"/>
+                    <room id="1"/>
+                    <room id="2"/>
+                    <room id="3"/>
+                    <room id="4"/>
+                    <room id="5"/>
+                    <room id="6"/>
+                    <room id="7"/>
+                    <room id="8"/>
+                </rooms>
+                <backups>
+                    <room id="9"/>
+                </backups>
+            </partition>
+            <partition>
+                <rooms>
+                    <room id="9"/>
+                    <room id="10"/>
+                    <room id="11"/>
+                    <room id="12"/>
+                    <room id="13"/>
+                    <room id="14"/>
+                </rooms>
+                <backups>
+                    <room id="4">
+                        <slot id="1"/>
+                        <slot id="3"/>
+                    </room>
+                </backups>
+            </partition>
         </rooms>
 	</mod-append:customShip>
 	
@@ -162,6 +256,48 @@
                 <roomAnim renderLayer="2">telepad_ico</roomAnim>
                 <roomAnim renderLayer="1">telepad_on_escort_1</roomAnim>
             </room>
+            <partition>
+                <rooms>
+                    <room id="0"/>
+                    <room id="1"/>
+                    <room id="2"/>
+                    <room id="3"/>
+                    <room id="4"/>
+                    <room id="5"/>
+                </rooms>
+                <backups>
+                    <room id="11"/>
+                    <room id="16"/>
+                </backups>
+            </partition>
+            <partition>
+                <rooms>
+                    <room id="6"/>
+                    <room id="7"/>
+                    <room id="8"/>
+                    <room id="9"/>
+                    <room id="10"/>
+                    <room id="11"/>
+                </rooms>
+                <backups>
+                    <room id="3"/>
+                    <room id="16"/>
+                </backups>
+            </partition>
+            <partition>
+                <rooms>
+                    <room id="12"/>
+                    <room id="13"/>
+                    <room id="14"/>
+                    <room id="15"/>
+                    <room id="16"/>
+                    <room id="17"/>
+                </rooms>
+                <backups>
+                    <room id="5"/>
+                    <room id="11"/>
+                </backups>
+            </partition>
         </rooms>
 	</mod-append:customShip>
     
