@@ -47,7 +47,7 @@ script.on_internal_event(Defines.InternalEvents.SHIP_LOOP, function(ship)
         local enemyShip = Hyperspace.ships.enemy
         if enemyShip and enemyShip._targetable.hostile and not enemyShip.bDestroyed then
             if shipData.hullChange > 0 then
-                shipData.hullRepairedThisFight = shipData.hullRepairedThisFight + shipData.hullChange
+                shipData.hullRepairedThisFight = (shipData.hullRepairedThisFight or 0) + shipData.hullChange
                 if shipData.hullRepairedThisFight >= 20 then
                     Hyperspace.CustomAchievementTracker.instance:SetAchievement("ACH_SHIP_ESCORT_DUTY_1", false)
                     return
