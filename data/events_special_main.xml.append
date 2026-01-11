@@ -14,6 +14,10 @@
 
 <event name="INITIAL_START_BEACON_ESCORT_DUTY">
     <text>Your ships are equipped with a pair of short-range transporters. When activated, crew on the pads will be teleported to the pads on the other ship. They cannot be damaged, but require 5 seconds to recharge after being used.</text>
+    <choice>
+        <text>Continue...</text>
+        <event load="INITIAL_START_BEACON_ESCORT_DUTY_CANCEL"/>
+    </choice>
     <eventButton name="UI_ESCORT_TELEPORT">
         <event load="LUA_ESCORT_TELEPORT"/>
         <image>statusUI/escort_tp</image>
@@ -27,6 +31,10 @@
 
 <event name="INITIAL_START_BEACON_ESCORT_DUTY_ELITE">
     <text>Your ships are equipped with two pairs of short-range transporters. When activated, crew on the pads will be teleported to the corresponding pads on the other ship. They cannot be damaged, but require 5 seconds to recharge after being used.</text>
+    <choice>
+        <text>Continue...</text>
+        <event load="INITIAL_START_BEACON_ESCORT_DUTY_CANCEL"/>
+    </choice>
     <eventButton name="UI_ESCORT_TELEPORT">
         <event load="LUA_ESCORT_TELEPORT"/>
         <image>statusUI/escort_tp</image>
@@ -46,6 +54,7 @@
         <jumpClear>false</jumpClear>
     </eventButton>
 </event>
+
 
 <event name="LUA_ESCORT_TELEPORT">
     <triggeredEvent event="ESCORT_TELEPORT_RECHARGE" minTime="5.0" maxTime="5.0"/>
