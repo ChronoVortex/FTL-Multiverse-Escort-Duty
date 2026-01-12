@@ -250,8 +250,7 @@ end
 -----------------------------
 script.on_game_event("INITIAL_START_BEACON_ESCORT_DUTY", false, function() ShowTutorialArrow(1, 918, 561) end)
 script.on_game_event("INITIAL_START_BEACON_ESCORT_DUTY_ELITE", false, function() ShowTutorialArrow(1, 900, 561) end)
-script.on_game_event("LIGHTSPEED_DROPPOINT", false, HideTutorialArrow)
-script.on_game_event("START_BEACON_PRESELECT", false, HideTutorialArrow) -- Just in case the tut arrow is active on game start
+script.on_game_event("INITIAL_START_BEACON_ESCORT_DUTY_CANCEL", false, HideTutorialArrow)
 
 local function handle_mini_teleporters(linkageName)
     local ship = Hyperspace.ships.player
