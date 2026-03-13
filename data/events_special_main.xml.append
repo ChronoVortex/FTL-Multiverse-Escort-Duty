@@ -53,6 +53,7 @@
         <req>loc_escort_teleport_charged_2</req>
         <jumpClear>false</jumpClear>
     </eventButton>
+	<remove name="SHARED_SYSTEMS"/>
 </event>
 
 
